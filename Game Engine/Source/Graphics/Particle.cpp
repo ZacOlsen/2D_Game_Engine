@@ -9,8 +9,6 @@ Particle::Particle(ParticleEmitter* emitter, const Vector2& size, const Vector4&
 	this->lifeTime = lifeTime;
 
 	timeOfSpawn = clock();
-
-//	m_shader = &shaderUI;
 }
 
 Particle::~Particle() {

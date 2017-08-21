@@ -7,8 +7,6 @@
 
 int main() {
 
-//	Utilities::writeToFile("..\\Game Engine\\Assets\\Saves\\text.txt", "testing");
-
 	Window window("game", 960, 540);
 	glClearColor(0, 0, 0, 1);
 
@@ -28,13 +26,11 @@ int main() {
 	while (!window.closed()) {
 
 		window.clear();
-		//GameManager::frameTime = (float)(clock() - prev) / CLOCKS_PER_SEC;
-		//prev = clock();
 		GameManager::onFrame();
 
 		counter++;
 		if ((float)(clock() - t) / CLOCKS_PER_SEC >= 1.0f) {
-			cout << counter << endl;
+	//		cout << counter << endl;
 			counter = 0;
 			t = clock();
 		}

@@ -76,6 +76,8 @@ void Input::mousePosCallback(GLFWwindow* window, double xPos, double yPos) {
 	
 	mousePos.x = (float)xPos - Camera::getWidth() / 2.0f;
 	mousePos.y = -1 * ((float)yPos - Camera::getHeight() / 2.0f);
+
+	cout << mousePos << endl;
 }
 
 void Input::mouseButtonCallback(GLFWwindow* window, int button, int action, int mods) {
