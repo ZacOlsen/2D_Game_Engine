@@ -40,7 +40,7 @@ AnimatorController* AnimatorController::createFromString(const string& str) {
 void AnimatorController::start() {
 	
 	renderer = gameObject->getComponent<Renderer>();
-	renderer->sprite = animations[animIndex]->getSprite(spriteIndex);
+	renderer->setSprites(animations[animIndex]->getSpriteSet(spriteIndex));
 	timer = clock();
 }
 
@@ -54,7 +54,7 @@ void AnimatorController::update() {
 			spriteIndex = 0;
 		}
 
-		renderer->sprite = animations[animIndex]->getSprite(spriteIndex);
+		renderer->setSprites(animations[animIndex]->getSpriteSet(spriteIndex));
 	}
 }
 
@@ -73,7 +73,7 @@ void AnimatorController::changeToAnimation(const char* name) {
 
 			animIndex = i;
 			spriteIndex = 0;
-			renderer->sprite = animations[animIndex]->getSprite(spriteIndex);
+			renderer->setSprites(animations[animIndex]->getSpriteSet(spriteIndex));
 			timer = clock();
 			break;
 		}

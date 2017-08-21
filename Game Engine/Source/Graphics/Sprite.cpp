@@ -1,14 +1,13 @@
 #include "Sprite.h"
-//#include "Physics.h"
 
 vector<Sprite*> Sprite::sprites;
 
-Sprite::Sprite(const char* filePath) {
+Sprite::Sprite(const char* filePath) : filePath(filePath) {
 
-	this->filePath = "..\\Game Engine\\Assets\\Images\\" + string(filePath);
+	string file = "..\\Game Engine\\Assets\\Images\\" + this->filePath;
 
 	unsigned int width, height;
-	BYTE* bits = Utilities::loadImage(this->filePath.c_str(), &width, &height);
+	BYTE* bits = Utilities::loadImage(file.c_str(), &width, &height);
 
 	glGenTextures(1, &textureID);
 	glBindTexture(GL_TEXTURE_2D, textureID);
@@ -27,10 +26,6 @@ Sprite::Sprite(const char* filePath) {
 	sprites.push_back(this);
 }
 
-Sprite::~Sprite() {
-
-}
-
 Sprite* Sprite::getSprite(const char* filePath) {
 	
 	for (unsigned int i = 0; i < sprites.size(); i++) {
@@ -40,6 +35,10 @@ Sprite* Sprite::getSprite(const char* filePath) {
 	}
 
 	return new Sprite(filePath);
+}
+
+const GLuint Sprite::getTextureID() {
+	return textureID;
 }
 
 void Sprite::bind() {

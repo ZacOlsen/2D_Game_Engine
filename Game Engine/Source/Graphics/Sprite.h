@@ -8,18 +8,20 @@ class Sprite {
 public:
 
 	Sprite(const char* filePath);
-	~Sprite();
 
 	static Sprite* getSprite(const char* filePath);
+
+	const GLuint getTextureID();
+	std::string getFilePath();
 
 	void bind();
 	void unbind();
 
-	std::string getFilePath();
-
-	GLuint textureID;
 private:
-	string filePath;
+
 	static vector<Sprite*> sprites;
+	
+	GLuint textureID;
+	const string filePath;
 };
 

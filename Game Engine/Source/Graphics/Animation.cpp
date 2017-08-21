@@ -1,6 +1,6 @@
 #include "Animation.h"
 
-Animation::Animation(const vector<Sprite*> sprites, const float& frameRate, const char* name) {
+Animation::Animation(const vector<vector<Sprite*>> sprites, const float& frameRate, const char* name) {
 
 	this->sprites = sprites;
 	this->frameRate = frameRate;
@@ -14,7 +14,7 @@ string Animation::getSaveString() {
 	save += to_string(frameRate) + "\n";
 
 	for (unsigned int i = 0; i < sprites.size(); i++) {
-		save += sprites[i]->getFilePath();
+	//	save += sprites[i]->getFilePath();
 
 		if (i < sprites.size() - 1) {
 			save += ", ";
@@ -55,13 +55,14 @@ Animation* Animation::createFromString(const string& str) {
 
 	c = new char[name.length()];
 	strcpy(c, name.c_str());
-	return new Animation(sprites, frameRate, c);
+//	return new Animation(sprites, frameRate, c);
+	return nullptr;
 }
 
 const unsigned int Animation::spriteCount() {
 	return sprites.size();
 }
 
-Sprite*& Animation::getSprite(const unsigned int& index) {
+vector<Sprite*> Animation::getSpriteSet(const unsigned int& index) {
 	return sprites[index];
 }

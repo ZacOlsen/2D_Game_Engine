@@ -270,12 +270,12 @@
     <ClCompile Include="Source\Utilities\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Source\Shaders\lightworldfragment.frag" />
-    <None Include="Source\Shaders\lightworldvertex.vert" />
-    <None Include="Source\Shaders\UIfragment.frag" />
-    <None Include="Source\Shaders\UIvertex.vert" />
-    <None Include="Source\Shaders\worldfragment.frag" />
-    <None Include="Source\Shaders\worldvertex.vert" />
+    <None Include="Source\Shaders\AreaLight.frag" />
+    <None Include="Source\Shaders\AreaLight.vert" />
+    <None Include="Source\Shaders\UI.frag" />
+    <None Include="Source\Shaders\UI.vert" />
+    <None Include="Source\Shaders\World.frag" />
+    <None Include="Source\Shaders\World.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Saves\test scene.txt" />
@@ -292,8 +292,14 @@
     <Image Include="Assets\Images\run1.png" />
     <Image Include="Assets\Images\run2.png" />
     <Image Include="Assets\Images\star.png" />
-    <Image Include="Assets\Images\theif light.png" />
-    <Image Include="Assets\Images\theif shadow.png" />
+    <Image Include="Assets\Images\theif light idle1.png" />
+    <Image Include="Assets\Images\theif light idle2.png" />
+    <Image Include="Assets\Images\theif light walk1.png" />
+    <Image Include="Assets\Images\theif light walk2.png" />
+    <Image Include="Assets\Images\theif shadow idle1.png" />
+    <Image Include="Assets\Images\theif shadow idle2.png" />
+    <Image Include="Assets\Images\theif shadow walk1.png" />
+    <Image Include="Assets\Images\theif shadow walk2.png" />
     <Image Include="Assets\Images\tower.png" />
     <Image Include="Assets\Images\wall left half end.png" />
     <Image Include="Assets\Images\wall right half end.png" />

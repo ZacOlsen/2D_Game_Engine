@@ -6,8 +6,11 @@ Shader::Shader(const char* vertFile, const char* fragFile) {
 	GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
 	GLuint fragment = glCreateShader(GL_FRAGMENT_SHADER);
 
-	string fragProgs = Utilities::readFile(fragFile);
-	string vertProgs = Utilities::readFile(vertFile);
+	string vertFP = "..\\Game Engine\\Source\\Shaders\\" + string(vertFile);
+	string fragFP = "..\\Game Engine\\Source\\Shaders\\" + string(fragFile);
+
+	string fragProgs = Utilities::readFile(fragFP.c_str());
+	string vertProgs = Utilities::readFile(vertFP.c_str());
 	const char* fragProg = fragProgs.c_str();
 	const char* vertProg = vertProgs.c_str();
 
@@ -53,22 +56,6 @@ void Shader::setImage(const GLuint& imageID) {
 	glUniform1i(loc, imageID);
 }
 
-void Shader::addImage(const GLuint& textureID, const char* imageLocName) {
-
-	if (textureIDs.size() >= 32) {
-		throw exception();
-	}
-
-	for (unsigned int i = 0; i < textureIDs.size(); i++) {
-		if (textureIDs[i] == textureID) {
-			return;
-		}
-	}
-
-	textureIDs.push_back(textureID);
-	imageLocNames.push_back(imageLocName);
-}
-
 void Shader::setColor(const Vector4& color) {
  
 	GLuint loc = glGetUniformLocation(id, "spriteColor");
@@ -77,6 +64,8 @@ void Shader::setColor(const Vector4& color) {
 
 void Shader::setUniform1i(const GLuint& id, const char* name) {
 	glUniform1i(getUniformLocation(name), id);
+	glActiveTexture(GL_TEXTURE0 + id);
+	glBindTexture(GL_TEXTURE_2D, id);
 }
 
 void Shader::setUniform2f(const Vector2& vec, const char* name) {
@@ -99,12 +88,6 @@ void Shader::enable() {
 
 	glUseProgram(id);
 
-	for (unsigned int i = 0; i < textureIDs.size(); i++) {
-		
-		setUniform1i(textureIDs[i], imageLocNames[i].c_str());
-		glActiveTexture(GL_TEXTURE0 + textureIDs[i]);
-		glBindTexture(GL_TEXTURE_2D, textureIDs[i]);
-	}
 }
 
 void Shader::disable() {

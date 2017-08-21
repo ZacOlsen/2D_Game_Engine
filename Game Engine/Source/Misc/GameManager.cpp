@@ -33,19 +33,23 @@ void GameManager::init() {
 	pe->addColor(Vector4(0, 0, 1, 1));
 	findGameObject("Player")->addComponent(pe);
 
-	Sprite* shadow = Sprite::getSprite("theif shadow.png");
+//	Sprite* shadow = Sprite::getSprite("theif shadow.png");
 
-	Shader* lightShader = new Shader("lightworldvertex.vert", "lightworldfragment.frag");
+	Shader* lightShader = SpriteRenderer::getShader(2);
 	lightShader->enable();
 	lightShader->setUniform2f(Vector2(0, -5), "light");
 	lightShader->setUniform4f(Vector4(1, 1, 1, 1), "lightColor");
 //	lightShader->setUniform1i(shadow->textureID, "imageShadow");
-	findGameObject("Player")->getComponent<SpriteRenderer>()->setShader(lightShader);
+	findGameObject("Player")->getComponent<SpriteRenderer>()->setShaderIndex(2);
 	lightShader->disable();
 
-	vector<Sprite*> sprites;
-	sprites.push_back(Sprite::getSprite("wolfwalk1.png"));
-	sprites.push_back(Sprite::getSprite("wolfwalk2.png"));
+	vector<Sprite*> set1;
+	set1.push_back(Sprite::getSprite("wolfwalk1.png"));
+	vector<Sprite*> set2;
+	set2.push_back(Sprite::getSprite("wolfwalk2.png"));
+	vector<vector<Sprite*>> sprites;
+	sprites.push_back(set1);
+	sprites.push_back(set2);
 	Animation* anim = new Animation(sprites, .5f, "walking");
 	vector<Animation*> anims;
 	anims.push_back(anim);
@@ -54,7 +58,7 @@ void GameManager::init() {
 	wolf->addComponent(new Transform(Matrix3::translationMatrix(30, -5)));
 	wolf->addComponent(new RigidBody());
 	wolf->addComponent(new BoxCollider(Vector2(1, 1)));
-	wolf->addComponent(new SpriteRenderer(Vector2(1, 1)));
+	wolf->addComponent(new SpriteRenderer(Vector2(1, 1), Vector4(1, 1, 1, 1), Sprite::getSprite("wolfwalk1.png")));
 	wolf->addComponent(new AnimatorController(anims));
 	wolf->addComponent(new WolfController());
 
@@ -98,23 +102,45 @@ void GameManager::maunalWorldBuild() {
 	tower->addComponent(new SpriteRenderer(Vector2(3, 3), Vector4(0, 1, 0, 1), towerSprite));
 	tower->addComponent(new BoxCollider(Vector2(3, 3)));
 
+	vector<Sprite*> idleSet1;
+	idleSet1.push_back(new Sprite("theif light idle1.png"));
+	idleSet1.push_back(new Sprite("theif shadow idle1.png"));
+
+	vector<Sprite*> idleSet2;
+	idleSet2.push_back(new Sprite("theif light idle2.png"));
+	idleSet2.push_back(new Sprite("theif shadow idle2.png"));
+
+	vector<vector<Sprite*>> idle;
+	idle.push_back(idleSet1);
+	idle.push_back(idleSet2);
+	Animation* anim1 = new Animation(idle, .5f, "idle");
+
+	vector<Sprite*> walkSet1;
+	walkSet1.push_back(new Sprite("theif light walk1.png"));
+	walkSet1.push_back(new Sprite("theif shadow walk1.png"));
+
+	vector<Sprite*> walkSet2;
+	walkSet2.push_back(new Sprite("theif light walk2.png"));
+	walkSet2.push_back(new Sprite("theif shadow walk2.png"));
+
+	vector<vector<Sprite*>> walk;
+	walk.push_back(walkSet1);
+	walk.push_back(walkSet2);
+	Animation* anim2 = new Animation(walk, .5f, "walk");
+
+	vector<Animation*> anims;
+	anims.push_back(anim1);
+	anims.push_back(anim2);
+	vector<string> locNames;
+	locNames.push_back("imageLight");
+	locNames.push_back("imageShadow");
+
 	GameObject* box = new GameObject("Player");
 	box->addComponent(new Transform(Matrix3::translationMatrix(0, .75f)));
-	box->addComponent(new SpriteRenderer(Vector2(1, 1), Vector4(1, 1, 1, 1)));
+	box->addComponent(new SpriteRenderer(Vector2(1, 1), Vector4(1, 1, 1, 1), idleSet1, locNames));
 	box->addComponent(new RigidBody());
 	box->addComponent(new BoxCollider(Vector2(1, 1)));
 	box->addComponent(new PlayerController());
-	vector<Sprite*> idle;
-	idle.push_back(new Sprite("theif light.png"));
-//	idle.push_back(new Sprite("idle2.png"));
-	Animation* anim1 = new Animation(idle, .5f, "idle");
-	vector<Sprite*> run;
-//	run.push_back(new Sprite("run1.png"));
-//	run.push_back(new Sprite("run2.png"));
-//	Animation* anim2 = new Animation(run, .5f, "run");
-	vector<Animation*> anims;
-	anims.push_back(anim1);
-//	anims.push_back(anim2);
 	box->addComponent(new AnimatorController(anims, 0));
 
 	GameObject* groundCheck = new GameObject("Ground Check");

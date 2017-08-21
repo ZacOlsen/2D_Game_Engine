@@ -76,7 +76,7 @@ void PlayerController::update() {
 		jump();
 	}
 
-	animContr->changeToAnimation(x != 0 ? "run" : "idle");
+	animContr->changeToAnimation(x != 0 ? "walk" : "idle");
 	emitter->enabled = x != 0;
 
 	rb->velocity.x = x;

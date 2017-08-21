@@ -1,36 +1,46 @@
 #include "Renderer.h"
 #include "..\..\Misc\GameObject.h"
 
-Shader Renderer::shaderUI;
+vector<Shader*> Renderer::shaders;
 
 Renderer::Renderer(const Vector4& color, Sprite* sprite) {
 
 	this->color = color;
-	this->sprite = sprite;
+
+	sprites.push_back(sprite);
+	locationNames.push_back("image");
 
 	uvs.push_back(Vector2(0, 0));
 	uvs.push_back(Vector2(1, 0));
 	uvs.push_back(Vector2(1, 1));
 	uvs.push_back(Vector2(0, 1));
-
-	m_shader = &shaderUI;
 }
 
-Renderer::~Renderer() {}
+Renderer::Renderer(const Vector4& color, vector<Sprite*> sprites, vector<string> locationNames) {
+
+	this->color = color;
+	this->sprites = sprites;
+	this->locationNames = locationNames;
+
+	uvs.push_back(Vector2(0, 0));
+	uvs.push_back(Vector2(1, 0));
+	uvs.push_back(Vector2(1, 1));
+	uvs.push_back(Vector2(0, 1));
+}
 
 void Renderer::init() {
-	shaderUI = Shader("UIvertex.vert", "UIfragment.frag");
+	shaders.push_back(new Shader("UI.vert", "UI.frag"));
 }
 
 std::string Renderer::getSaveString() {
 	
 	string save = "Renderer\n";
 
-	if (sprite) {
-		save += sprite->getFilePath();
-	} else {
+//	if (sprite) {
+	//	save += sprite->getFilePath();
+//	} else {
 		save += "NULL";
-	}
+//	}
 	save += "\n";
 	save += to_string(color.x) + ", " + to_string(color.y) + ", " + to_string(color.z) + ", " + to_string(color.w) + "\n";
 	
@@ -46,7 +56,7 @@ Renderer* Renderer::createFromString(const string& str) {
 
 	if (str.substr(start, end - start) != "NULL") {
 		Sprite* s = Sprite::getSprite(str.substr(start, end - start).c_str());
-		rend->sprite = s;
+	//	rend->sprite = s;
 	}
 
 	start = end + 1;
@@ -69,8 +79,20 @@ Renderer* Renderer::createFromString(const string& str) {
 	return rend;
 }
 
-void Renderer::setShader(Shader* shader) {
-	m_shader = shader;
+void Renderer::setShaderIndex(const unsigned int& index) {
+	shaderIndex = index;
+}
+
+Shader* Renderer::getShader(const unsigned int& index) {
+	return shaders[index];
+}
+
+void Renderer::setSprites(const vector<Sprite*>& sprites) {
+	this->sprites = sprites;
+}
+
+const GLuint Renderer::getTextureID(const unsigned int& index) {
+	return sprites[index]->getTextureID();
 }
 
 void Renderer::render() {
@@ -87,11 +109,11 @@ void Renderer::render() {
 
 	gameObject->transform->getCameraPerspectivePosition(topR, topL, botL, botR);
 
-	if (sprite) {
+	if (sprites.size() > 0) {
 
 //		sprite->bind();
 		renderSprite(botL, botR, topR, topL);
-		sprite->unbind();
+//		sprite->unbind();
 
 	} else {
 		renderRect(botL, botR, topR, topL);
@@ -100,17 +122,16 @@ void Renderer::render() {
 
 void Renderer::renderSprite(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL) {
 
-	m_shader->enable();
-	m_shader->setColor(color);
+	shaders[shaderIndex]->enable();
+	shaders[shaderIndex]->setColor(color);
 
-	if (sprite) {
-		textureID = sprite->textureID;
+	for (unsigned int i = 0; i < sprites.size(); i++) {
+		const GLuint textureID = getTextureID(i);
+		shaders[shaderIndex]->setUniform1i(textureID, locationNames[i].c_str());
 	}
-	m_shader->addImage(textureID, "image");
-	m_shader->setImage(textureID);
 
-	const GLuint texLoc = m_shader->getAttribLocation("texCoord");
-	const GLuint posLoc = m_shader->getAttribLocation("screenPos");
+	const GLuint texLoc = shaders[shaderIndex]->getAttribLocation("texCoord");
+	const GLuint posLoc = shaders[shaderIndex]->getAttribLocation("screenPos");
 
 	glBegin(GL_QUADS);
 	glVertexAttrib2f(texLoc, uvs[0].x, uvs[0].y);
@@ -134,7 +155,7 @@ void Renderer::renderSprite(const Vector2& botL, const Vector2& botR, const Vect
 	glVertex2f(topL.x, topL.y);
 	glEnd();
 
-	m_shader->disable();
+	shaders[shaderIndex]->disable();
 }
 
 void Renderer::renderRect(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL) {

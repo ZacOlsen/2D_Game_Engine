@@ -15,8 +15,6 @@ public:
 	const GLuint getUniformLocation(const char* name);
 	
 	void setImage(const GLuint& imageID);
-
-	void addImage(const GLuint& textureID, const char* imageLocName);
 	void setColor(const Vector4& color);
 
 	void setUniform1i(const GLuint& id, const char* name);
@@ -29,10 +27,7 @@ public:
 	void enable();
 	void disable();
 
-	GLuint id;
 private:
-
-	vector<GLuint> textureIDs;
-	vector<string> imageLocNames;
+	GLuint id;
 };
 

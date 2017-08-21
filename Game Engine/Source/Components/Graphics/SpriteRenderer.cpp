@@ -1,6 +1,5 @@
 #include "SpriteRenderer.h"
 
-Shader SpriteRenderer::shaderWorld;
 vector<SpriteRenderer*> SpriteRenderer::spriteRenders;
 
 SpriteRenderer::SpriteRenderer(const Vector2& size, const Vector4& color, Sprite* sprite) :
@@ -9,7 +8,16 @@ SpriteRenderer::SpriteRenderer(const Vector2& size, const Vector4& color, Sprite
 	this->size = size;
 	spriteRenders.push_back(this);
 
-	m_shader = &shaderWorld;
+	shaderIndex = 1;
+}
+
+SpriteRenderer::SpriteRenderer(const Vector2& size, const Vector4& color, vector<Sprite*> sprites, 
+	vector<string> locationNames) : Renderer(color, sprites, locationNames) {
+
+	this->size = size;
+	spriteRenders.push_back(this);
+
+	shaderIndex = 1;
 }
 
 SpriteRenderer::~SpriteRenderer() {
@@ -25,11 +33,11 @@ string SpriteRenderer::getSaveString() {
 	string save = "SpriteRenderer\n";
 	save += to_string(size.x) + ", " + to_string(size.y) + "\n";
 	
-	if (sprite) {
-		save += sprite->getFilePath();
-	} else {
+//	if (sprite) {
+//		save += sprite->getFilePath();
+//	} else {
 		save += "NULL";
-	}
+//	}
 	save += "\n";
 	save += to_string(color.x) + ", " + to_string(color.y) + ", " + to_string(color.z) + ", " + to_string(color.w) + "\n";
 
@@ -54,12 +62,8 @@ SpriteRenderer* SpriteRenderer::createFromString(const string& string) {
 
 	if (string.substr(start, end - start) != "NULL") {
 		Sprite* s = Sprite::getSprite(string.substr(start, end - start).c_str());
-	//	if (s) {
-			sr->sprite = s;
-	//	}
-	//	else {
-	//		sr->sprite = new Sprite(string.substr(start, end - start).c_str());
-	//	}
+
+//		sr->sprite = s;
 	}
 
 	start = end + 1;
@@ -83,7 +87,9 @@ SpriteRenderer* SpriteRenderer::createFromString(const string& string) {
 }
 
 void SpriteRenderer::init() {
-	shaderWorld = Shader("worldvertex.vert", "worldfragment.frag");
+
+	shaders.push_back(new Shader("World.vert", "World.frag"));
+	shaders.push_back(new Shader("AreaLight.vert", "AreaLight.frag"));
 	spriteRenders = vector<SpriteRenderer*>();
 }
 
@@ -114,11 +120,11 @@ void SpriteRenderer::render() {
 	gameObject->transform->getWorldPosition(worldBotL, worldBotR, worldTopR, worldtopL);
 	gameObject->transform->getCameraPerspectivePosition(topR, topL, botL, botR);
 
-	if (sprite) {
+	if (sprites.size() > 0) {
 
 //		sprite->bind();
 		renderSprite(botL, botR, topR, topL, worldBotL, worldBotR, worldTopR, worldtopL);
-		sprite->unbind();
+//		sprite->unbind();
 
 	} else {
 		renderRect(botL, botR, topR, topL);
@@ -128,22 +134,17 @@ void SpriteRenderer::render() {
 void SpriteRenderer::renderSprite(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL,
 	const Vector2& worldBotL, const Vector2& worldBotR, const Vector2& worldTopR, const Vector2& worldTopL) {
 
-	if (m_shader != &shaderWorld) {
-		Sprite* s1 = Sprite::getSprite("theif light.png");
-		Sprite* s2 = Sprite::getSprite("theif shadow.png");
-		m_shader->addImage(s1->textureID, "imageLight");
-		m_shader->addImage(s2->textureID, "imageShadow");
+	shaders[shaderIndex]->enable();
+	shaders[shaderIndex]->setColor(color);
+
+	for (unsigned int i = 0; i < sprites.size(); i++) {
+		const GLuint textureID = getTextureID(i);
+		shaders[shaderIndex]->setUniform1i(textureID, locationNames[i].c_str());
 	}
 
-	m_shader->enable();
-	m_shader->setColor(color);
-
-	m_shader->addImage(sprite->textureID, "image");
-	m_shader->setImage(sprite->textureID);
-
-	const GLuint texLoc = m_shader->getAttribLocation("texCoord");
-	const GLuint screenPosLoc = m_shader->getAttribLocation("screenPos");
-	const GLuint worldPosLoc = m_shader->getAttribLocation("worldPos");
+	const GLuint texLoc = shaders[shaderIndex]->getAttribLocation("texCoord");
+	const GLuint screenPosLoc = shaders[shaderIndex]->getAttribLocation("screenPos");
+	const GLuint worldPosLoc = shaders[shaderIndex]->getAttribLocation("worldPos");
 
 	glBegin(GL_QUADS);
 	glVertexAttrib2f(texLoc, uvs[0].x, uvs[0].y);
@@ -171,6 +172,6 @@ void SpriteRenderer::renderSprite(const Vector2& botL, const Vector2& botR, cons
 	glVertex2f(topL.x, topL.y);
 	glEnd();
 
-	m_shader->disable();
+	shaders[shaderIndex]->disable();
 }
 

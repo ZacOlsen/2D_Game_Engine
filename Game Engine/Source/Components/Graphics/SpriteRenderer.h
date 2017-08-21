@@ -10,6 +10,7 @@ public:
 	Vector2 size;
 
 	SpriteRenderer(const Vector2& size = Vector2(1, 1), const Vector4& color = Vector4(1, 1, 1, 1), Sprite* sprite = NULL);
+	SpriteRenderer(const Vector2& size, const Vector4& color, vector<Sprite*> sprites, vector<string> locationNames);
 	~SpriteRenderer();
 	
 	string getSaveString();
@@ -22,7 +23,6 @@ public:
 
 protected:
 
-	static Shader shaderWorld;
 	static vector<SpriteRenderer*> spriteRenders;
 
 	void renderSprite(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL,

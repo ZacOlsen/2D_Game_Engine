@@ -10,27 +10,34 @@ class Renderer : public Component {
 
 public:
 
-	static Shader shaderUI;
+	//static Shader shaderUI;
 
 	Vector4 color;
-	Sprite* sprite = NULL;
 
 	Renderer(const Vector4& color = Vector4(1, 1, 1, 1), Sprite* sprite = NULL);
-	~Renderer();
+	Renderer(const Vector4& color, vector<Sprite*> sprites, vector<string> locationNames);
 
 	std::string getSaveString();
 	static Renderer* createFromString(const string& str);
 
-	void setShader(Shader* shader);
+	void setShaderIndex(const unsigned int& index);
+	static Shader* getShader(const unsigned int& index);
+
+	void setSprites(const vector<Sprite*>& sprites);
+
+	virtual const GLuint getTextureID(const unsigned int& index);
 
 	static void init();
 	virtual void render();
 
 protected:
 
-	Shader* m_shader = nullptr;
+	static vector<Shader*> shaders;
+	unsigned int shaderIndex = 0;
+
+	vector<Sprite*> sprites;
+	vector<string> locationNames;
 	vector<Vector2> uvs;
-	GLuint textureID;
 
 	void renderSprite(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL);
 	void renderRect(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL);

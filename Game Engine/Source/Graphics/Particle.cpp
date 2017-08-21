@@ -42,7 +42,7 @@ void Particle::render() {
 	Vector2 botL = Camera::getCameraMatrix() * Vector2(left, bot);
 	Vector2 botR = Camera::getCameraMatrix() * Vector2(right, bot);
 
-	sprite->bind();
+//	sprite->bind();
 	Renderer::renderSprite(botL, botR, topR, topL);
-	sprite->unbind();
+//	sprite->unbind();
 }

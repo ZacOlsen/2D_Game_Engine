@@ -156,10 +156,11 @@ void TextRenderer::findFontHeight() {
 	height = (float)glyph->height;
 }
 
-void TextRenderer::render() {
+const GLuint TextRenderer::getTextureID(const unsigned int& index) {
+	return atlas->id;
+}
 
-//	glEnable(GL_TEXTURE_2D);
-//	glBindTexture(GL_TEXTURE_2D, atlas->id);
+void TextRenderer::render() {
 
 	Vector2 pos;
 
@@ -203,7 +204,6 @@ void TextRenderer::render() {
 
 //		glEnable(GL_TEXTURE_2D);
 //		glBindTexture(GL_TEXTURE_2D, atlas->id);
-		textureID = atlas->id;
 		renderSprite(botL, botR, topR, topL);
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
