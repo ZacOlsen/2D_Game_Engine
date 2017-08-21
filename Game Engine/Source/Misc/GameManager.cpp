@@ -49,13 +49,10 @@ void GameManager::init() {
 	pe->addColor(Vector4(0, 0, 1, 1));
 	findGameObject("Player")->addComponent(pe);
 
-//	Sprite* shadow = Sprite::getSprite("theif shadow.png");
-
 	lightShader->enable();
 	lightShader->setUniform2f(Vector2(0, -5), "light");
 	lightShader->setUniform4f(Vector4(1, 1, 1, 1), "lightColor");
 	lightShader->setUniform1f(2, "brightness");
-//	lightShader->setUniform1i(shadow->textureID, "imageShadow");
 	findGameObject("Player")->getComponent<SpriteRenderer>()->setShaderIndex(2);
 	lightShader->disable();
 
@@ -153,14 +150,14 @@ void GameManager::maunalWorldBuild() {
 
 	GameObject* box = new GameObject("Player");
 	box->addComponent(new Transform(Matrix3::translationMatrix(0, .75f)));
-	box->addComponent(new SpriteRenderer(Vector2(1, 1), Vector4(1, 1, 1, 1), idleSet1, locNames));
+	box->addComponent(new SpriteRenderer(Vector2(1, 2), Vector4(1, 1, 1, 1), idleSet1, locNames));
 	box->addComponent(new RigidBody());
-	box->addComponent(new BoxCollider(Vector2(1, 1)));
+	box->addComponent(new BoxCollider(Vector2(1, 2)));
 	box->addComponent(new PlayerController());
 	box->addComponent(new AnimatorController(anims, 0));
 
 	GameObject* groundCheck = new GameObject("Ground Check");
-	groundCheck->addComponent(new Transform(Matrix3::translationMatrix(0, -.5f),
+	groundCheck->addComponent(new Transform(Matrix3::translationMatrix(0, -1),
 		Matrix3::identityMatrix(), Matrix3::identityMatrix(), box->transform));
 	groundCheck->addComponent(new BoxCollider(Vector2(.99f, .02f), true));
 
