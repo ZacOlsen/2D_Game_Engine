@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ext">
+      <UniqueIdentifier>{8f902207-f29e-49ac-ac4b-0b1411c23376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\freetype">
+      <UniqueIdentifier>{1c88cbe8-f6c0-4149-8eaa-a47464383003}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\freetype-gl">
+      <UniqueIdentifier>{4d9fba26-0a49-4d6f-a3f1-e2d4cab44277}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\freetype\FT_MODULES">
+      <UniqueIdentifier>{59a07103-b704-4cdc-b1cd-d2658bbab4b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{f3a19433-835c-49b1-8376-ad24b5731861}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Components">
+      <UniqueIdentifier>{f583fe8a-3eba-4227-9248-ef255d2fd9cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Graphics">
+      <UniqueIdentifier>{ad64f1a3-86c1-4c9b-9c48-6c3e22c0b3e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Math">
+      <UniqueIdentifier>{e7766e58-f78f-41c2-bc51-4d9addfb44d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Misc">
+      <UniqueIdentifier>{62e4780a-3a79-4eaf-a0b1-bba02aabe2f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Physics">
+      <UniqueIdentifier>{87b8855b-279c-4192-95f4-5bbae96902dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Shaders">
+      <UniqueIdentifier>{f8b94cf2-aa59-430f-8897-67f5267d3380}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Utilities">
+      <UniqueIdentifier>{c0648a6c-b956-435f-a0df-9fbc1c5c4657}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Components\Graphics">
+      <UniqueIdentifier>{89560786-42ae-4991-96c8-ee9b20b96d72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Components\Physics">
+      <UniqueIdentifier>{31f25c97-fe05-4c00-bb30-6b081a86b82d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Components\Scripts">
+      <UniqueIdentifier>{3302bcbf-63ad-4d5a-81e3-0e371b63e746}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Components\UI">
+      <UniqueIdentifier>{148a2d7b-d410-4928-917a-061a364fc88c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Images">
+      <UniqueIdentifier>{92c55372-8825-4606-b425-d67f987af244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Fonts">
+      <UniqueIdentifier>{b855aaf9-edd6-4dbd-970f-f2a3466a3314}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Saves">
+      <UniqueIdentifier>{ffb86fef-688d-49b8-a636-bbfe8c573d44}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ext\freetype\include\ft2build.h">
+      <Filter>ext\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype\include\config\ftheader.h">
+      <Filter>ext\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype\include\config\ftmodule.h">
+      <Filter>ext\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype\include\config\ftoption.h">
+      <Filter>ext\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype\include\config\ftstdlib.h">
+      <Filter>ext\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype\include\config\ftconfig.h">
+      <Filter>ext\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype-gl\vec234.h">
+      <Filter>ext\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype-gl\vector.h">
+      <Filter>ext\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype-gl\freetype-gl.h">
+      <Filter>ext\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype-gl\opengl.h">
+      <Filter>ext\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype-gl\platform.h">
+      <Filter>ext\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype-gl\texture-atlas.h">
+      <Filter>ext\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype-gl\texture-font.h">
+      <Filter>ext\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utilities\Input.h">
+      <Filter>Source\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utilities\Scene.h">
+      <Filter>Source\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utilities\Utilities.h">
+      <Filter>Source\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utilities\Window.h">
+      <Filter>Source\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Physics\Physics.h">
+      <Filter>Source\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Misc\GameManager.h">
+      <Filter>Source\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Misc\GameObject.h">
+      <Filter>Source\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Math\Matrix3.h">
+      <Filter>Source\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Math\Vector2.h">
+      <Filter>Source\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Math\Vector3.h">
+      <Filter>Source\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Math\Vector4.h">
+      <Filter>Source\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Graphics\Animation.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Graphics\Camera.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Graphics\Particle.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Graphics\Shader.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Graphics\Sprite.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\Component.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\Transform.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\Updateable.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\UI\Button.h">
+      <Filter>Source\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\UI\Canvas.h">
+      <Filter>Source\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\UI\RectTransform.h">
+      <Filter>Source\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\Physics\BoxCollider.h">
+      <Filter>Source\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\Physics\RigidBody.h">
+      <Filter>Source\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\Scripts\DeathBox.h">
+      <Filter>Source\Components\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\Scripts\PlayerController.h">
+      <Filter>Source\Components\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\Scripts\WolfController.h">
+      <Filter>Source\Components\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\Graphics\AnimatorController.h">
+      <Filter>Source\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\Graphics\ParticleEmitter.h">
+      <Filter>Source\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\Graphics\Renderer.h">
+      <Filter>Source\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\Graphics\SpriteRenderer.h">
+      <Filter>Source\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\Graphics\TextRenderer.h">
+      <Filter>Source\Components\Graphics</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ext\freetype-gl\vector.c">
+      <Filter>ext\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype-gl\platform.c">
+      <Filter>ext\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype-gl\texture-atlas.c">
+      <Filter>ext\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype-gl\texture-font.c">
+      <Filter>ext\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\autofit\autofit.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\bdf\bdf.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\cff\cff.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftbase.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftbitmap.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\cache\ftcache.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftdebug.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftfstype.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftgasp.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftglyph.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\gzip\ftgzip.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftinit.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\lzw\ftlzw.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftstroke.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftsystem.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\smooth\smooth.c">
+      <Filter>ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftbbox.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftgxval.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftlcdfil.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftmm.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftotval.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftpatent.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftpfr.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftsynth.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\fttype1.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftwinfnt.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\base\ftxf86.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\pcf\pcf.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\pfr\pfr.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\psaux\psaux.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\pshinter\pshinter.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\psnames\psmodule.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\raster\raster.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\sfnt\sfnt.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\truetype\truetype.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\type1\type1.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\cid\type1cid.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\type42\type42.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Ext\freetype\src\winfonts\winfnt.c">
+      <Filter>ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utilities\Input.cpp">
+      <Filter>Source\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utilities\Scene.cpp">
+      <Filter>Source\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utilities\Utilities.cpp">
+      <Filter>Source\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utilities\Window.cpp">
+      <Filter>Source\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Physics\Physics.cpp">
+      <Filter>Source\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Misc\GameManager.cpp">
+      <Filter>Source\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Misc\GameObject.cpp">
+      <Filter>Source\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Math\Matrix3.cpp">
+      <Filter>Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Math\Vector2.cpp">
+      <Filter>Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Math\Vector3.cpp">
+      <Filter>Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Math\Vector4.cpp">
+      <Filter>Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\Animation.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\Camera.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\Particle.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\Shader.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\Sprite.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Component.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Transform.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Updateable.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\UI\Button.cpp">
+      <Filter>Source\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\UI\Canvas.cpp">
+      <Filter>Source\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\UI\RectTransform.cpp">
+      <Filter>Source\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Physics\BoxCollider.cpp">
+      <Filter>Source\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Physics\RigidBody.cpp">
+      <Filter>Source\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Scripts\DeathBox.cpp">
+      <Filter>Source\Components\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Scripts\PlayerController.cpp">
+      <Filter>Source\Components\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Scripts\WolfController.cpp">
+      <Filter>Source\Components\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Graphics\AnimatorController.cpp">
+      <Filter>Source\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Graphics\ParticleEmitter.cpp">
+      <Filter>Source\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Graphics\Renderer.cpp">
+      <Filter>Source\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Graphics\SpriteRenderer.cpp">
+      <Filter>Source\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Graphics\TextRenderer.cpp">
+      <Filter>Source\Components\Graphics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Shaders\lightworldfragment.frag">
+      <Filter>Source\Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\lightworldvertex.vert">
+      <Filter>Source\Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\UIfragment.frag">
+      <Filter>Source\Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\UIvertex.vert">
+      <Filter>Source\Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\worldfragment.frag">
+      <Filter>Source\Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\worldvertex.vert">
+      <Filter>Source\Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\Saves\test scene.txt">
+      <Filter>Assets\Saves</Filter>
+    </Text>
+    <Text Include="Assets\Saves\text.txt">
+      <Filter>Assets\Saves</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\Fonts\arial.ttf">
+      <Filter>Assets\Fonts</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Images\idle1.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+    <Image Include="Assets\Images\idle2.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+    <Image Include="Assets\Images\repeatable wall.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+    <Image Include="Assets\Images\run1.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+    <Image Include="Assets\Images\run2.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+    <Image Include="Assets\Images\star.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+    <Image Include="Assets\Images\theif light.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+    <Image Include="Assets\Images\theif shadow.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+    <Image Include="Assets\Images\tower.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+    <Image Include="Assets\Images\wall left half end.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+    <Image Include="Assets\Images\wall right half end.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+    <Image Include="Assets\Images\wolfwalk1.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+    <Image Include="Assets\Images\wolfwalk2.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+    <Image Include="Assets\Images\color test.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

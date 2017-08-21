@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{F0776CC8-A4C9-41BD-B798-72C07A3EED55}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>GameEngine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)ext\freetype\include;$(SolutionDir)Dependencies\glfw-3.2.bin.WIN32\include;$(SolutionDir)Dependencies\glew-1.13.0\include;$(SolutionDir)Dependencies\FreeImage\Dist\x32;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\glfw-3.2.bin.WIN32\lib-vc2015;$(SolutionDir)Dependencies\glew-1.13.0\lib\Release\Win32;$(SolutionDir)Dependencies\FreeImage\Dist\x32;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir)ext\freetype\include;$(SolutionDir)Dependencies\glfw-3.2.bin.WIN32\include;$(SolutionDir)Dependencies\glew-1.13.0\include;$(SolutionDir)Dependencies\FreeImage\Dist\x32;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\glfw-3.2.bin.WIN32\lib-vc2015;$(SolutionDir)Dependencies\glew-1.13.0\lib\Release\Win32;$(SolutionDir)Dependencies\FreeImage\Dist\x32;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>glfw3dll.lib;glew32s.lib;opengl32.lib;FreeImage.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>glfw3dll.lib;glew32s.lib;opengl32.lib;FreeImage.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="ext\freetype-gl\freetype-gl.h" />
+    <ClInclude Include="ext\freetype-gl\opengl.h" />
+    <ClInclude Include="ext\freetype-gl\platform.h" />
+    <ClInclude Include="ext\freetype-gl\texture-atlas.h" />
+    <ClInclude Include="ext\freetype-gl\texture-font.h" />
+    <ClInclude Include="ext\freetype-gl\vec234.h" />
+    <ClInclude Include="ext\freetype-gl\vector.h" />
+    <ClInclude Include="ext\freetype\include\config\ftconfig.h" />
+    <ClInclude Include="ext\freetype\include\config\ftheader.h" />
+    <ClInclude Include="ext\freetype\include\config\ftmodule.h" />
+    <ClInclude Include="ext\freetype\include\config\ftoption.h" />
+    <ClInclude Include="ext\freetype\include\config\ftstdlib.h" />
+    <ClInclude Include="ext\freetype\include\ft2build.h" />
+    <ClInclude Include="Source\Components\Component.h" />
+    <ClInclude Include="Source\Components\Graphics\AnimatorController.h" />
+    <ClInclude Include="Source\Components\Graphics\ParticleEmitter.h" />
+    <ClInclude Include="Source\Components\Graphics\Renderer.h" />
+    <ClInclude Include="Source\Components\Graphics\SpriteRenderer.h" />
+    <ClInclude Include="Source\Components\Graphics\TextRenderer.h" />
+    <ClInclude Include="Source\Components\Physics\BoxCollider.h" />
+    <ClInclude Include="Source\Components\Physics\RigidBody.h" />
+    <ClInclude Include="Source\Components\Scripts\DeathBox.h" />
+    <ClInclude Include="Source\Components\Scripts\PlayerController.h" />
+    <ClInclude Include="Source\Components\Scripts\WolfController.h" />
+    <ClInclude Include="Source\Components\Transform.h" />
+    <ClInclude Include="Source\Components\UI\Button.h" />
+    <ClInclude Include="Source\Components\UI\Canvas.h" />
+    <ClInclude Include="Source\Components\UI\RectTransform.h" />
+    <ClInclude Include="Source\Components\Updateable.h" />
+    <ClInclude Include="Source\Graphics\Animation.h" />
+    <ClInclude Include="Source\Graphics\Camera.h" />
+    <ClInclude Include="Source\Graphics\Particle.h" />
+    <ClInclude Include="Source\Graphics\Shader.h" />
+    <ClInclude Include="Source\Graphics\Sprite.h" />
+    <ClInclude Include="Source\Math\Matrix3.h" />
+    <ClInclude Include="Source\Math\Vector2.h" />
+    <ClInclude Include="Source\Math\Vector3.h" />
+    <ClInclude Include="Source\Math\Vector4.h" />
+    <ClInclude Include="Source\Misc\GameManager.h" />
+    <ClInclude Include="Source\Misc\GameObject.h" />
+    <ClInclude Include="Source\Physics\Physics.h" />
+    <ClInclude Include="Source\Utilities\Input.h" />
+    <ClInclude Include="Source\Utilities\Scene.h" />
+    <ClInclude Include="Source\Utilities\Utilities.h" />
+    <ClInclude Include="Source\Utilities\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ext\freetype-gl\platform.c" />
+    <ClCompile Include="ext\freetype-gl\texture-atlas.c" />
+    <ClCompile Include="ext\freetype-gl\texture-font.c" />
+    <ClCompile Include="ext\freetype-gl\vector.c" />
+    <ClCompile Include="Ext\freetype\src\autofit\autofit.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftbase.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftbbox.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftbitmap.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftdebug.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftfstype.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftgasp.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftglyph.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftgxval.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftinit.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftlcdfil.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftmm.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftotval.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftpatent.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftpfr.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftstroke.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftsynth.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftsystem.c" />
+    <ClCompile Include="Ext\freetype\src\base\fttype1.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftwinfnt.c" />
+    <ClCompile Include="Ext\freetype\src\base\ftxf86.c" />
+    <ClCompile Include="Ext\freetype\src\bdf\bdf.c" />
+    <ClCompile Include="Ext\freetype\src\cache\ftcache.c" />
+    <ClCompile Include="Ext\freetype\src\cff\cff.c" />
+    <ClCompile Include="Ext\freetype\src\cid\type1cid.c" />
+    <ClCompile Include="Ext\freetype\src\gzip\ftgzip.c" />
+    <ClCompile Include="Ext\freetype\src\lzw\ftlzw.c" />
+    <ClCompile Include="Ext\freetype\src\pcf\pcf.c" />
+    <ClCompile Include="Ext\freetype\src\pfr\pfr.c" />
+    <ClCompile Include="Ext\freetype\src\psaux\psaux.c" />
+    <ClCompile Include="Ext\freetype\src\pshinter\pshinter.c" />
+    <ClCompile Include="Ext\freetype\src\psnames\psmodule.c" />
+    <ClCompile Include="Ext\freetype\src\raster\raster.c" />
+    <ClCompile Include="Ext\freetype\src\sfnt\sfnt.c" />
+    <ClCompile Include="Ext\freetype\src\smooth\smooth.c" />
+    <ClCompile Include="Ext\freetype\src\truetype\truetype.c" />
+    <ClCompile Include="Ext\freetype\src\type1\type1.c" />
+    <ClCompile Include="Ext\freetype\src\type42\type42.c" />
+    <ClCompile Include="Ext\freetype\src\winfonts\winfnt.c" />
+    <ClCompile Include="Source\Components\Component.cpp" />
+    <ClCompile Include="Source\Components\Graphics\AnimatorController.cpp" />
+    <ClCompile Include="Source\Components\Graphics\ParticleEmitter.cpp" />
+    <ClCompile Include="Source\Components\Graphics\Renderer.cpp" />
+    <ClCompile Include="Source\Components\Graphics\SpriteRenderer.cpp" />
+    <ClCompile Include="Source\Components\Graphics\TextRenderer.cpp" />
+    <ClCompile Include="Source\Components\Physics\BoxCollider.cpp" />
+    <ClCompile Include="Source\Components\Physics\RigidBody.cpp" />
+    <ClCompile Include="Source\Components\Scripts\DeathBox.cpp" />
+    <ClCompile Include="Source\Components\Scripts\PlayerController.cpp" />
+    <ClCompile Include="Source\Components\Scripts\WolfController.cpp" />
+    <ClCompile Include="Source\Components\Transform.cpp" />
+    <ClCompile Include="Source\Components\UI\Button.cpp" />
+    <ClCompile Include="Source\Components\UI\Canvas.cpp" />
+    <ClCompile Include="Source\Components\UI\RectTransform.cpp" />
+    <ClCompile Include="Source\Components\Updateable.cpp" />
+    <ClCompile Include="Source\Graphics\Animation.cpp" />
+    <ClCompile Include="Source\Graphics\Camera.cpp" />
+    <ClCompile Include="Source\Graphics\Particle.cpp" />
+    <ClCompile Include="Source\Graphics\Shader.cpp" />
+    <ClCompile Include="Source\Graphics\Sprite.cpp" />
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Math\Matrix3.cpp" />
+    <ClCompile Include="Source\Math\Vector2.cpp" />
+    <ClCompile Include="Source\Math\Vector3.cpp" />
+    <ClCompile Include="Source\Math\Vector4.cpp" />
+    <ClCompile Include="Source\Misc\GameManager.cpp" />
+    <ClCompile Include="Source\Misc\GameObject.cpp" />
+    <ClCompile Include="Source\Physics\Physics.cpp" />
+    <ClCompile Include="Source\Utilities\Input.cpp" />
+    <ClCompile Include="Source\Utilities\Scene.cpp" />
+    <ClCompile Include="Source\Utilities\Utilities.cpp" />
+    <ClCompile Include="Source\Utilities\Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Shaders\lightworldfragment.frag" />
+    <None Include="Source\Shaders\lightworldvertex.vert" />
+    <None Include="Source\Shaders\UIfragment.frag" />
+    <None Include="Source\Shaders\UIvertex.vert" />
+    <None Include="Source\Shaders\worldfragment.frag" />
+    <None Include="Source\Shaders\worldvertex.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\Saves\test scene.txt" />
+    <Text Include="Assets\Saves\text.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\Fonts\arial.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Images\color test.png" />
+    <Image Include="Assets\Images\idle1.png" />
+    <Image Include="Assets\Images\idle2.png" />
+    <Image Include="Assets\Images\repeatable wall.png" />
+    <Image Include="Assets\Images\run1.png" />
+    <Image Include="Assets\Images\run2.png" />
+    <Image Include="Assets\Images\star.png" />
+    <Image Include="Assets\Images\theif light.png" />
+    <Image Include="Assets\Images\theif shadow.png" />
+    <Image Include="Assets\Images\tower.png" />
+    <Image Include="Assets\Images\wall left half end.png" />
+    <Image Include="Assets\Images\wall right half end.png" />
+    <Image Include="Assets\Images\wolfwalk1.png" />
+    <Image Include="Assets\Images\wolfwalk2.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
