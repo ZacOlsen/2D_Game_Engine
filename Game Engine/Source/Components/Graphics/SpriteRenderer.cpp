@@ -1,30 +1,30 @@
 #include "SpriteRenderer.h"
 
-vector<SpriteRenderer*> SpriteRenderer::spriteRenders;
+vector<vector<SpriteRenderer*>> SpriteRenderer::spriteRenders;
 
 SpriteRenderer::SpriteRenderer(const Vector2& size, const Vector4& color, Sprite* sprite) :
 	Renderer(color, sprite) {
 
 	this->size = size;
-	spriteRenders.push_back(this);
+	setSortingLayer(sortingLayer);
 
 	shaderIndex = 1;
 }
 
-SpriteRenderer::SpriteRenderer(const Vector2& size, const Vector4& color, vector<Sprite*> sprites, 
-	vector<string> locationNames) : Renderer(color, sprites, locationNames) {
+SpriteRenderer::SpriteRenderer(const Vector2& size, const Vector4& color, vector<Sprite*> sprites,
+	vector<string> locationNames, const unsigned int& layer) : Renderer(color, sprites, locationNames) {
 
 	this->size = size;
-	spriteRenders.push_back(this);
+	setSortingLayer(layer);
 
 	shaderIndex = 1;
 }
 
 SpriteRenderer::~SpriteRenderer() {
 
-	auto it = find(spriteRenders.begin(), spriteRenders.end(), this);
-	if (it != spriteRenders.end()) {
-		spriteRenders.erase(it);
+	auto it = find(spriteRenders[sortingLayer].begin(), spriteRenders[sortingLayer].end(), this);
+	if (it != spriteRenders[sortingLayer].end()) {
+		spriteRenders[sortingLayer].erase(it);
 	}
 }
 
@@ -32,12 +32,12 @@ string SpriteRenderer::getSaveString() {
 
 	string save = "SpriteRenderer\n";
 	save += to_string(size.x) + ", " + to_string(size.y) + "\n";
-	
-//	if (sprite) {
-//		save += sprite->getFilePath();
-//	} else {
-		save += "NULL";
-//	}
+
+	//	if (sprite) {
+	//		save += sprite->getFilePath();
+	//	} else {
+	save += "NULL";
+	//	}
 	save += "\n";
 	save += to_string(color.x) + ", " + to_string(color.y) + ", " + to_string(color.z) + ", " + to_string(color.w) + "\n";
 
@@ -63,7 +63,7 @@ SpriteRenderer* SpriteRenderer::createFromString(const string& string) {
 	if (string.substr(start, end - start) != "NULL") {
 		Sprite* s = Sprite::getSprite(string.substr(start, end - start).c_str());
 
-//		sr->sprite = s;
+		//		sr->sprite = s;
 	}
 
 	start = end + 1;
@@ -86,17 +86,39 @@ SpriteRenderer* SpriteRenderer::createFromString(const string& string) {
 	return sr;
 }
 
+void SpriteRenderer::changeSortingLayer(const unsigned int& layer) {
+
+	auto it = find(spriteRenders[sortingLayer].begin(), spriteRenders[sortingLayer].end(), this);
+	if (it != spriteRenders[sortingLayer].end()) {
+		spriteRenders[sortingLayer].erase(it);
+	}
+
+	setSortingLayer(layer);
+}
+
+void SpriteRenderer::setSortingLayer(const unsigned int& layer) {
+
+	sortingLayer = layer;
+	while (spriteRenders.size() <= layer) {
+		spriteRenders.push_back(vector<SpriteRenderer*>());
+	}
+
+	spriteRenders[layer].push_back(this);
+}
+
 void SpriteRenderer::init() {
 
 	shaders.push_back(new Shader("World.vert", "World.frag"));
 	shaders.push_back(new Shader("AreaLight.vert", "AreaLight.frag"));
-	spriteRenders = vector<SpriteRenderer*>();
+	spriteRenders = vector<vector<SpriteRenderer*>>();
 }
 
 void SpriteRenderer::renderAllSprites() {
 
 	for (unsigned int i = 0; i < spriteRenders.size(); i++) {
-		spriteRenders[i]->render();
+		for (unsigned int j = 0; j < spriteRenders[i].size(); j++) {
+			spriteRenders[i][j]->render();
+		}
 	}
 }
 
@@ -135,7 +157,7 @@ void SpriteRenderer::renderSprite(const Vector2& botL, const Vector2& botR, cons
 	const Vector2& worldBotL, const Vector2& worldBotR, const Vector2& worldTopR, const Vector2& worldTopL) {
 
 	shaders[shaderIndex]->enable();
-	shaders[shaderIndex]->setColor(color);
+	shaders[shaderIndex]->setUniform4f(color, "spriteColor");
 
 	for (unsigned int i = 0; i < sprites.size(); i++) {
 		const GLuint textureID = getTextureID(i);

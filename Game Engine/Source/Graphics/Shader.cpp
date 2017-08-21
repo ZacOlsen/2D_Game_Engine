@@ -50,22 +50,14 @@ const GLuint Shader::getUniformLocation(const char* name) {
 	return glGetUniformLocation(id, name);
 }
 
-void Shader::setImage(const GLuint& imageID) {
-
-	GLuint loc = glGetUniformLocation(id, "image");
-	glUniform1i(loc, imageID);
-}
-
-void Shader::setColor(const Vector4& color) {
- 
-	GLuint loc = glGetUniformLocation(id, "spriteColor");
-	glUniform4f(loc, color.x, color.y, color.z, color.w);
-}
-
 void Shader::setUniform1i(const GLuint& id, const char* name) {
 	glUniform1i(getUniformLocation(name), id);
 	glActiveTexture(GL_TEXTURE0 + id);
 	glBindTexture(GL_TEXTURE_2D, id);
+}
+
+void Shader::setUniform1f(const float& f, const char* name) {
+	glUniform1f(getUniformLocation(name), f);
 }
 
 void Shader::setUniform2f(const Vector2& vec, const char* name) {

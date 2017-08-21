@@ -13,7 +13,23 @@ void GameManager::init() {
 	Physics::init();
 	Physics::debug = true;
 
+	Sprite* backgroundLight = Sprite::getSprite("background light.png");
+	Sprite* backgroundDark = Sprite::getSprite("background dark.png");
+	vector<Sprite*> set;
+	set.push_back(backgroundLight);
+	set.push_back(backgroundDark);
+
+	vector<string> locNames;
+	locNames.push_back("imageLight");
+	locNames.push_back("imageShadow");
+
 	maunalWorldBuild();
+
+	Shader* lightShader = SpriteRenderer::getShader(2);
+	GameObject* back = new GameObject("Background");
+	back->addComponent(new Transform(Matrix3::translationMatrix(20, 0)));
+	back->addComponent(new SpriteRenderer(Vector2(60, 16), Vector4(1, 1, 1, 1), set, locNames, 0));
+	back->getComponent<SpriteRenderer>()->setShaderIndex(2);
 
 //	Scene scene("test scene.txt");
 //	scene.saveScene(gameObjects);
@@ -35,10 +51,10 @@ void GameManager::init() {
 
 //	Sprite* shadow = Sprite::getSprite("theif shadow.png");
 
-	Shader* lightShader = SpriteRenderer::getShader(2);
 	lightShader->enable();
 	lightShader->setUniform2f(Vector2(0, -5), "light");
 	lightShader->setUniform4f(Vector4(1, 1, 1, 1), "lightColor");
+	lightShader->setUniform1f(2, "brightness");
 //	lightShader->setUniform1i(shadow->textureID, "imageShadow");
 	findGameObject("Player")->getComponent<SpriteRenderer>()->setShaderIndex(2);
 	lightShader->disable();

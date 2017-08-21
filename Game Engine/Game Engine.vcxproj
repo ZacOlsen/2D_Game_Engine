@@ -285,6 +285,8 @@
     <Font Include="Assets\Fonts\arial.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Assets\Images\background dark.png" />
+    <Image Include="Assets\Images\background light.png" />
     <Image Include="Assets\Images\color test.png" />
     <Image Include="Assets\Images\idle1.png" />
     <Image Include="Assets\Images\idle2.png" />

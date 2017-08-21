@@ -7,6 +7,7 @@ uniform sampler2D imageShadow;
 uniform vec4 spriteColor;
 uniform vec4 lightColor;
 uniform vec2 light;
+uniform float brightness;
 
 in DATA {
 	vec2 uv;
@@ -17,10 +18,7 @@ in DATA {
 
 void main() {
 
-	float intens = 1.0 / length(fs_in.worldPos - light);
-	if(intens > 1.0){
-	//	intens = 1.0;
-	}
+	float intens = brightness / length(fs_in.worldPos - light);
 
 	if(intens > 1.0){
 		color = spriteColor * texture(imageLight, fs_in.texCoord);
@@ -28,10 +26,11 @@ void main() {
 		color = spriteColor * texture(imageShadow, fs_in.texCoord);
 	}
 
-	vec4 shadowCol = texture(imageShadow, fs_in.texCoord);
-	vec4 lightCol = texture(imageLight, fs_in.texCoord);
-
-//	color = mix(shadowCol, lightCol, intens) * spriteColor;
-
+	//if(intens > 1.0){
+	//	intens = 1.0;
+	//}
+	//vec4 shadowCol = texture(imageShadow, fs_in.texCoord);
+	//vec4 lightCol = texture(imageLight, fs_in.texCoord);
+	//color = mix(shadowCol, lightCol, intens) * spriteColor;
 	//color = spriteColor * texture(imageLight, fs_in.texCoord);// * intens * lightColor;
 }  

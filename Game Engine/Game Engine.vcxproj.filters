@@ -524,5 +524,11 @@
     <Image Include="Assets\Images\theif shadow idle2.png">
       <Filter>Assets\Images</Filter>
     </Image>
+    <Image Include="Assets\Images\background dark.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
+    <Image Include="Assets\Images\background light.png">
+      <Filter>Assets\Images</Filter>
+    </Image>
   </ItemGroup>
 </Project>

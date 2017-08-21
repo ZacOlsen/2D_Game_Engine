@@ -17,9 +17,9 @@ Particle::~Particle() {
 
 	emitter->remove(this);
 
-	auto it = find(spriteRenders.begin(), spriteRenders.end(), this);
-	if (it != spriteRenders.end()) {
-		spriteRenders.erase(it);
+	auto it = find(spriteRenders[sortingLayer].begin(), spriteRenders[sortingLayer].end(), this);
+	if (it != spriteRenders[sortingLayer].end()) {
+		spriteRenders[sortingLayer].erase(it);
 	}
 }
 

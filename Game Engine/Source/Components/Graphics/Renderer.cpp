@@ -123,7 +123,7 @@ void Renderer::render() {
 void Renderer::renderSprite(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL) {
 
 	shaders[shaderIndex]->enable();
-	shaders[shaderIndex]->setColor(color);
+	shaders[shaderIndex]->setUniform4f(color, "spriteColor");
 
 	for (unsigned int i = 0; i < sprites.size(); i++) {
 		const GLuint textureID = getTextureID(i);
