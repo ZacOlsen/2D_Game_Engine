@@ -1,4 +1,5 @@
 #include "Camera.h"
+#include "..\Misc\GameManager.h"
 
 float Camera::size = 8;
 Transform* Camera::transform;
@@ -39,6 +40,10 @@ void Camera::windowResizeCallBack(GLFWwindow* window, int width, int height) {
 	m_Height = height;
 
 	glViewport(0, 0, width, height);
+
+	if (GameManager::canvas && !GameManager::canvas->scaleWithScreenSize) {
+		GameManager::canvas->gameObject->transform->setLocaLScale(2.0f / (float)width, 2.0f / (float)height);
+	}
 
 	if (width > height) {
 		transform->setLocaLScale(1.0f / size, ((float)height / (float)width) / size);

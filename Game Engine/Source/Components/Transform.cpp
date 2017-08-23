@@ -128,6 +128,16 @@ void Transform::updateTransform() {
 	}
 }
 
+Transform* Transform::getRoot() {
+
+	Transform* temp = this;
+	while (temp->parent) {
+		temp = temp->parent;
+	}
+
+	return temp;
+}
+
 void Transform::setParent(Transform* parent) {
 
 	if (this->parent) {

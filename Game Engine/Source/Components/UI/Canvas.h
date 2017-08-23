@@ -8,6 +8,7 @@ class Canvas : public Component {
 
 public:
 	
+	bool scaleWithScreenSize = true;
 	string getSaveString();
 	void renderUI();
 

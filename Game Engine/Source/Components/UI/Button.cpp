@@ -73,7 +73,19 @@ bool Button::mouseInButton() {
 	Vector2 topR(.5f, .5f);
 	Vector2 dontUse;
 
-	Vector2 mousePos = gameObject->transform->parent->getTransformation() * Input::getMousePosition();
+	Vector2 mousePos = Input::getMousePosition();
+
+	if (GameManager::canvas->scaleWithScreenSize) {
+		Vector2 scale = gameObject->transform->getRoot()->getLocalScale();
+		Vector2 camScale = Vector2(2.0f / (float)Camera::getWidth(), 2.0f / (float)Camera::getHeight());
+
+		if (scale != camScale) {
+			mousePos.x *= camScale.x / scale.x;
+			mousePos.y *= camScale.y / scale.y;
+		}
+	}
+
+	mousePos = gameObject->transform->getRoot()->getTransformation() * mousePos;
 	gameObject->transform->getCameraPerspectivePosition(botL, topR, dontUse, dontUse);
 
 	return mousePos.y <= topR.y && mousePos.y >= botL.y && mousePos.x >= botL.x && mousePos.x <= topR.x;

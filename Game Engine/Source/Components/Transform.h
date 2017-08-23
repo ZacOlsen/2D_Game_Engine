@@ -24,8 +24,10 @@ public:
 	void setLocaLRotation(const float& angle);
 	void setLocaLScale(const float& x, const float& y);
 
+	Transform* getRoot();
 	void setParent(Transform* parent);
 	void removeParent();
+
 	unsigned int childCount();
 	Transform* getChild(const int& index);
 

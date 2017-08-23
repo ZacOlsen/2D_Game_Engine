@@ -22,13 +22,13 @@ public:
 
 	static Transform* getTransformOfID(const unsigned short& id);
 
+	static Canvas* canvas;
 private:
 
 	static float physLagTime;
 	static clock_t prevFrame;
 
 	static vector<GameObject*> gameObjects;
-	static Canvas* canvas;
 
 	static void maunalWorldBuild();
 	static void buildPiramid(const float& startx, const float& starty, const float& direction = 1);

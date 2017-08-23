@@ -171,6 +171,7 @@ void GameManager::maunalWorldBuild() {
 		Matrix3::scaleMatrix(2.0f / (float)Camera::getWidth(), 2.0f / (float)Camera::getHeight())));
 	can->addComponent(new Canvas());
 	canvas = can->getComponent<Canvas>();
+	canvas->scaleWithScreenSize = true;
 
 	GameObject* canChild = new GameObject("Image");
 	canChild->addComponent(new RectTransform(Matrix3::translationMatrix(-380, 170), Matrix3::identityMatrix(),
