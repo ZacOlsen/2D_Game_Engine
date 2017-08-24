@@ -171,28 +171,7 @@ Matrix3 Transform::getTransformation() {
 }
 
 bool Transform::isInTransformTree(Transform* other) {
-
-	//union find check roots
-
-	Transform* temp = other;
-	while (temp) {
-		if (temp == this) {
-			return true;
-		}
-
-		temp = temp->parent;
-	}
-
-	temp = this;
-	while (temp) {
-		if (temp == other) {
-			return true;
-		}
-
-		temp = temp->parent;
-	}
-
-	return false;
+	return getRoot() == other->getRoot();
 }
 
 Vector2 Transform::getWorldPosition() {

@@ -21,7 +21,9 @@ void main() {
 	float intens = brightness / length(fs_in.worldPos - light);
 
 	if(intens > 1.0){
-		color = spriteColor * texture(imageLight, fs_in.texCoord);
+		//color = spriteColor * texture(imageLight, fs_in.texCoord);
+		color = lightColor * texture(imageShadow, fs_in.texCoord) + texture(imageShadow, fs_in.texCoord);
+		//color = lightColor * (texture(imageShadow, fs_in.texCoord) + vec4(.1f, .1f, .1f, color.w));
 	}else{
 		color = spriteColor * texture(imageShadow, fs_in.texCoord);
 	}

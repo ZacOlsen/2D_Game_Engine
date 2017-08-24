@@ -30,7 +30,7 @@ int main() {
 
 		counter++;
 		if ((float)(clock() - t) / CLOCKS_PER_SEC >= 1.0f) {
-	//		cout << counter << endl;
+			cout << counter << endl;
 			counter = 0;
 			t = clock();
 		}

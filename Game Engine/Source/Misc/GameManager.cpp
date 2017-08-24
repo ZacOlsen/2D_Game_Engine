@@ -51,7 +51,7 @@ void GameManager::init() {
 
 	lightShader->enable();
 	lightShader->setUniform2f(Vector2(0, -5), "light");
-	lightShader->setUniform4f(Vector4(1, 1, 1, 1), "lightColor");
+	lightShader->setUniform4f(Vector4(.75f, .52f, .24f, 1), "lightColor");
 	lightShader->setUniform1f(2, "brightness");
 	findGameObject("Player")->getComponent<SpriteRenderer>()->setShaderIndex(2);
 	lightShader->disable();
