@@ -2,12 +2,11 @@
 
 vector<Sprite*> Sprite::sprites;
 
-Sprite::Sprite(const char* filePath) : filePath(filePath) {
+Sprite::Sprite(const char* fileName) : fileName(fileName) {
 
-	string file = "..\\Game Engine\\Assets\\Images\\" + this->filePath;
+	string filePath = "..\\Game Engine\\Assets\\Images\\" + this->fileName;
 
-	unsigned int width, height;
-	BYTE* bits = Utilities::loadImage(file.c_str(), &width, &height);
+	BYTE* bits = Utilities::loadImage(filePath.c_str(), &width, &height);
 
 	glGenTextures(1, &textureID);
 	glBindTexture(GL_TEXTURE_2D, textureID);
@@ -26,19 +25,27 @@ Sprite::Sprite(const char* filePath) : filePath(filePath) {
 	sprites.push_back(this);
 }
 
-Sprite* Sprite::getSprite(const char* filePath) {
+Sprite* Sprite::getSprite(const char* fileName) {
 	
 	for (unsigned int i = 0; i < sprites.size(); i++) {
-		if (!strcmp(sprites[i]->filePath.c_str(), filePath)) {
+		if (!strcmp(sprites[i]->fileName.c_str(), fileName)) {
 			return sprites[i];
 		}
 	}
 
-	return new Sprite(filePath);
+	return new Sprite(fileName);
 }
 
 const GLuint Sprite::getTextureID() {
 	return textureID;
+}
+
+const unsigned int& Sprite::getWidth() const {
+	return width;
+}
+
+const unsigned int& Sprite::getHeight() const {
+	return height;
 }
 
 void Sprite::bind() {
@@ -51,5 +58,5 @@ void Sprite::unbind() {
 }
 
 std::string Sprite::getFilePath() {
-	return filePath;
+	return fileName;
 }

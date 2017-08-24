@@ -7,21 +7,27 @@ class Sprite {
 
 public:
 
-	Sprite(const char* filePath);
+	Sprite(const char* fileName);
 
-	static Sprite* getSprite(const char* filePath);
+	static Sprite* getSprite(const char* fileName);
 
 	const GLuint getTextureID();
 	std::string getFilePath();
 
+	const unsigned int& getWidth() const;
+	const unsigned int& getHeight() const;
+
 	void bind();
 	void unbind();
 
-private:
+protected:
 
 	static vector<Sprite*> sprites;
 	
+	unsigned int width;
+	unsigned int height;
+
 	GLuint textureID;
-	const string filePath;
+	const string fileName;
 };
 

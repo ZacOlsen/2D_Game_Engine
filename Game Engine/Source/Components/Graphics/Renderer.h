@@ -10,8 +10,6 @@ class Renderer : public Component {
 
 public:
 
-	//static Shader shaderUI;
-
 	Vector4 color;
 
 	Renderer(const Vector4& color = Vector4(1, 1, 1, 1), Sprite* sprite = NULL);

@@ -199,6 +199,9 @@
     <ClInclude Include="Source\Components\Graphics\TextRenderer.h">
       <Filter>Source\Components\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Graphics\SpriteSheet.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ext\freetype-gl\vector.c">
@@ -428,6 +431,9 @@
     </ClCompile>
     <ClCompile Include="Source\Components\Graphics\TextRenderer.cpp">
       <Filter>Source\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\SpriteSheet.cpp">
+      <Filter>Source\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
