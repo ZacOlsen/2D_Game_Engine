@@ -10,9 +10,9 @@ public:
 	
 	bool scaleWithScreenSize = true;
 	string getSaveString();
-	void renderUI();
+	void renderUI() const;
 
 private:
-	void renderIteration(RectTransform* rect);
+	void renderIteration(const RectTransform* rect) const;
 };
 

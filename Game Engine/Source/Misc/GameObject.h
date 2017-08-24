@@ -39,7 +39,7 @@ public:
 	void onTriggerExitCallBack(BoxCollider* col);
 
 	void addComponent(Component* comp);
-	template<class T> T* getComponent();
+	template<class T> T* getComponent() const;
 	void removeComponent(Component* comp);
 
 	void destroy();
@@ -52,7 +52,7 @@ private:
 	vector<Updateable*> updateables;
 };
 
-template<class T> T* GameObject::getComponent() {
+template<class T> T* GameObject::getComponent() const {
 
 	for (unsigned int i = 0; i < components.size(); i++) {
 		if (dynamic_cast<T*>(components[i])) {
@@ -60,8 +60,8 @@ template<class T> T* GameObject::getComponent() {
 		}
 	}
 
-	if (transform->parent) {
-		return transform->parent->gameObject->getComponent<T>();
+	if (transform->getParent()) {
+		return transform->getParent()->gameObject->getComponent<T>();
 	}
 
 	return nullptr;

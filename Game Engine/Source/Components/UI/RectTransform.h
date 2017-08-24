@@ -13,8 +13,8 @@ public:
 	static RectTransform* createFromString(const string& str);
 
 	void setParent(RectTransform* other);
-	RectTransform* getChild(const int& index);
+	const RectTransform* getChild(const int& index) const;
 
-	void getCameraPerspectivePosition(Vector2& vec1, Vector2& vec2, Vector2& vec3, Vector2& vec4) override;
+	void getCameraPerspectivePosition(Vector2& vec1, Vector2& vec2, Vector2& vec3, Vector2& vec4) const override;
 };
 

@@ -19,8 +19,8 @@ public:
 	Vector3& operator[](const unsigned int& index);
 	Vector3 operator[](const unsigned int& index) const;
 
-	Matrix3 transpose();
-	Matrix3 invert();
+	Matrix3 transpose() const;
+	Matrix3 invert() const;
 
 	Matrix3 friend operator/(const Matrix3& mat, const float& num);
 	Matrix3 friend operator*(const Matrix3& matL, const Matrix3& matR);

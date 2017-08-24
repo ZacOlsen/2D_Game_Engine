@@ -9,6 +9,7 @@ class GameObject;
 class Component {
 
 public:
+
 	GameObject* gameObject = nullptr;
 
 	virtual ~Component();

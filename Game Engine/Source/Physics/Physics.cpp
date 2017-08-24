@@ -152,7 +152,7 @@ void Physics::addCollider(BoxCollider* col) {
 	colliders.push_back(col);
 }
 
-void Physics::removeRigidBody(RigidBody* rb) {
+void Physics::removeRigidBody(const RigidBody* rb) {
 
 	auto it = find(rigidbodies.begin(), rigidbodies.end(), rb);
 	if (it != rigidbodies.end()) {
@@ -160,7 +160,7 @@ void Physics::removeRigidBody(RigidBody* rb) {
 	}
 }
 
-void Physics::removeCollider(BoxCollider* col) {
+void Physics::removeCollider(const BoxCollider* col) {
 
 	auto it = find(colliders.begin(), colliders.end(), col);
 	if (it != colliders.end()) {

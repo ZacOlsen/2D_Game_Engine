@@ -89,11 +89,11 @@ void RectTransform::setParent(RectTransform* parent) {
 	parent->children.push_back(this);
 }
 
-RectTransform* RectTransform::getChild(const int& index) {
+const RectTransform* RectTransform::getChild(const int& index) const {
 	return (RectTransform*)children[index];
 }
 
-void RectTransform::getCameraPerspectivePosition(Vector2& vec1, Vector2& vec2, Vector2& vec3, Vector2& vec4) {
+void RectTransform::getCameraPerspectivePosition(Vector2& vec1, Vector2& vec2, Vector2& vec3, Vector2& vec4) const {
 
 	vec1 = transformation * vec1;
 	vec2 = transformation * vec2;

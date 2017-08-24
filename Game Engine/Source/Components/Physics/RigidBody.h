@@ -19,7 +19,7 @@ public:
 	string getSaveString();
 	static RigidBody* createFromString(const string& str);
 
-	Vector2 getPreviousPosition() const;
+	const Vector2 getPreviousPosition() const;
 
 	friend ostream& operator<<(ostream& stream, const RigidBody& rb);
 };

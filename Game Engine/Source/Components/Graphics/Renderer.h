@@ -23,7 +23,7 @@ public:
 
 	void setSprites(const vector<Sprite*>& sprites);
 
-	virtual const GLuint getTextureID(const unsigned int& index);
+	virtual const GLuint getTextureID(const unsigned int& index) const;
 
 	static void init();
 	virtual void render();
@@ -37,7 +37,7 @@ protected:
 	vector<string> locationNames;
 	vector<Vector2> uvs;
 
-	void renderSprite(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL);
-	void renderRect(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL);
+	void renderSprite(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL) const;
+	void renderRect(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL) const;
 };
 

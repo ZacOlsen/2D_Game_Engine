@@ -11,14 +11,14 @@ public:
 
 	static Sprite* getSprite(const char* fileName);
 
-	const GLuint getTextureID();
-	std::string getFilePath();
+	const GLuint getTextureID() const;
+	const std::string getFileName() const;
 
 	const unsigned int& getWidth() const;
 	const unsigned int& getHeight() const;
 
-	void bind();
-	void unbind();
+	void bind() const;
+	void unbind() const;
 
 protected:
 

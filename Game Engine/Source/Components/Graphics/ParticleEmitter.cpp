@@ -49,7 +49,7 @@ void ParticleEmitter::addColor(const Vector4& color) {
 	colors.push_back(color);
 }
 
-void ParticleEmitter::remove(Particle* p) {
+void ParticleEmitter::remove(const Particle* p) {
 
 	auto it = find(particles.begin(), particles.end(), p);
 	if (it != particles.end()) {

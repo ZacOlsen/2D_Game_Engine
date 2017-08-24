@@ -3,12 +3,28 @@
 Window::Window(const char* title, const unsigned int& width, const unsigned int& height) {
 
 	this->title = title;
-	this->width = width;
-	this->height = height;
 
-	if (!init()) {
+	if (!glfwInit()) {
+		cout << "glfw failed to init" << endl;
 		glfwTerminate();
+		return;
 	}
+
+	if (!glewInit()) {
+		cout << "glew failed to init" << endl;
+		glfwTerminate();
+		return;
+	}
+
+	window = glfwCreateWindow(width, height, title, nullptr, nullptr);
+
+	if (!window) {
+		cout << "failed to create" << endl;
+		glfwTerminate();
+		return;
+	}
+
+	glfwMakeContextCurrent(window);
 
 	glfwSwapInterval(1);
 	Input::init(window);
@@ -23,31 +39,7 @@ GLFWwindow* Window::getWindow() {
 	return window;
 }
 
-bool Window::init() {
-
-	if (!glfwInit()) {
-		cout << "glfw failed to init" << endl;
-		return false;
-	}
-
-	if (!glewInit()) {
-		cout << "glew failed to init" << endl;
-		return false;
-	}
-
-	window = glfwCreateWindow(width, height, title, nullptr, nullptr);
-
-	if (!window) {
-		cout << "failed to create" << endl;
-		return false;
-	}
-
-	glfwMakeContextCurrent(window);
-	return true;
-}
-
 void Window::clear() const {
-
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 

@@ -32,6 +32,6 @@ protected:
 	void setSortingLayer(const unsigned int& layer);
 
 	void renderSprite(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL,
-		const Vector2& worldBotL, const Vector2& worldBotR, const Vector2& worldTopR, const Vector2& worldTopL);
+		const Vector2& worldBotL, const Vector2& worldBotR, const Vector2& worldTopR, const Vector2& worldTopL) const;
 };
 

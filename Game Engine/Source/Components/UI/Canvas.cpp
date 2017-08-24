@@ -6,11 +6,11 @@ string Canvas::getSaveString() {
 	return save;
 }
 
-void Canvas::renderUI() {
+void Canvas::renderUI() const {
 	renderIteration((RectTransform*)gameObject->transform);
 }
 
-void Canvas::renderIteration(RectTransform* rect) {
+void Canvas::renderIteration(const RectTransform* rect) const {
 
 	Renderer* rend = rect->gameObject->getComponent<Renderer>();
 	if (rend) {

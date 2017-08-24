@@ -82,8 +82,12 @@ Transform* Transform::createFromString(const string& string) {
 	return trans;
 }
 
-unsigned short Transform::getID() {
+const unsigned short Transform::getID() const {
 	return id;
+}
+
+const bool Transform::isInTransformTree(const Transform* other) const {
+	return getRoot() == other->getRoot();
 }
 
 void Transform::addToLocalPosition(const float& x, const float& y) {
@@ -126,9 +130,9 @@ void Transform::updateTransform() {
 	}
 }
 
-Transform* Transform::getRoot() {
+const Transform* Transform::getRoot() const {
 
-	Transform* temp = this;
+	const Transform* temp = this;
 	while (temp->parent) {
 		temp = temp->parent;
 	}
@@ -146,6 +150,10 @@ void Transform::setParent(Transform* parent) {
 	parent->children.push_back(this);
 }
 
+const Transform* Transform::getParent() const {
+	return parent;
+}
+
 void Transform::removeParent() {
 	
 	auto it = find(parent->children.begin(), parent->children.end(), this);
@@ -156,31 +164,27 @@ void Transform::removeParent() {
 	parent = nullptr;
 }
 
-unsigned int Transform::childCount() {
+const unsigned int Transform::childCount() const {
 	return children.size();
 }
 
-Transform* Transform::getChild(const int& index) {
+const Transform* Transform::getChild(const int& index) const {
 	return children[index];
 }
 
-Matrix3 Transform::getTransformation() {
+const Matrix3 Transform::getTransformation() const {
 	return transformation;
 }
 
-bool Transform::isInTransformTree(Transform* other) {
-	return getRoot() == other->getRoot();
-}
-
-Vector2 Transform::getWorldPosition() {
+const Vector2 Transform::getWorldPosition() const {
 	return transformation[2];
 }
 
-Vector2 Transform::getLocalScale() {
+const Vector2 Transform::getLocalScale() const {
 	return Vector2(scale[0][0], scale[1][1]);
 }
 
-void Transform::getWorldPosition(Vector2& vec1, Vector2& vec2, Vector2& vec3, Vector2& vec4) {
+void Transform::getWorldPosition(Vector2& vec1, Vector2& vec2, Vector2& vec3, Vector2& vec4) const {
 	
 	vec1 = transformation * vec1;
 	vec2 = transformation * vec2;
@@ -188,7 +192,7 @@ void Transform::getWorldPosition(Vector2& vec1, Vector2& vec2, Vector2& vec3, Ve
 	vec4 = transformation * vec4;
 }
 
-void Transform::getCameraPerspectivePosition(Vector2& vec1, Vector2& vec2, Vector2& vec3, Vector2& vec4) {
+void Transform::getCameraPerspectivePosition(Vector2& vec1, Vector2& vec2, Vector2& vec3, Vector2& vec4) const {
 
 	//Matrix3 transform = Camera::transform->transformation * transformation;
 	Matrix3 transform = Camera::getCameraMatrix() * transformation;

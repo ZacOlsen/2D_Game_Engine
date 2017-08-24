@@ -11,7 +11,6 @@ public:
 	
 	Vector3();
 	Vector3(const float& x, const float& y, const float& z);
-	~Vector3();
 
 	float& operator[](const unsigned int& index);
 	float operator[](const unsigned int& index) const;

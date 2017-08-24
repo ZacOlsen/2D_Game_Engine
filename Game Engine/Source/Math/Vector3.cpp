@@ -6,8 +6,6 @@ Vector3::Vector3(const float& x, const float& y, const float& z) : Vector2(x, y)
 	this->z = z;
 }
 
-Vector3::~Vector3() {}
-
 float& Vector3::operator[](const unsigned int& index) {
 	
 	switch (index) {

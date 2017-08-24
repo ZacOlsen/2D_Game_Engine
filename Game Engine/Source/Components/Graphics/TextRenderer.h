@@ -21,7 +21,7 @@ public:
 	string getSaveString();
 	static TextRenderer* createFromString(const string& str);
 
-	virtual const GLuint getTextureID(const unsigned int& index) override;
+	virtual const GLuint getTextureID(const unsigned int& index) const override;
 
 	void createText(const char* str, const float& size);
 	void render() override;

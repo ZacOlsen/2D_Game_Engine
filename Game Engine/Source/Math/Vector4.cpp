@@ -6,8 +6,6 @@ Vector4::Vector4(const float& x, const float& y, const float& z, const float& w)
 	this->w = w;
 }
 
-Vector4::~Vector4() {}
-
 float& Vector4::operator[](const unsigned int& index) {
 
 	switch (index) {

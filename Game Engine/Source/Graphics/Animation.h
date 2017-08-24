@@ -15,8 +15,8 @@ public:
 	string getSaveString();
 	static Animation* createFromString(const string& str);
 
-	const unsigned int spriteCount();
-	vector<Sprite*> getSpriteSet(const unsigned int& index);
+	const unsigned int spriteCount() const;
+	const vector<Sprite*> getSpriteSet(const unsigned int& index) const;
 
 private:
 	vector<vector<Sprite*>> sprites;

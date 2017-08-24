@@ -30,7 +30,7 @@ public:
 	void start();
 	void update();
 	void addColor(const Vector4& color);
-	void remove(Particle* p);
+	void remove(const Particle* p);
 
 private:
 	

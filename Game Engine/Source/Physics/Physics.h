@@ -27,8 +27,8 @@ public:
 	static void addRigidBody(RigidBody* rb);
 	static void addCollider(BoxCollider* col);
 
-	static void removeRigidBody(RigidBody* rb);
-	static void removeCollider(BoxCollider* col);
+	static void removeRigidBody(const RigidBody* rb);
+	static void removeCollider(const BoxCollider* col);
 
 	static BoxCollider* Raycast(const Vector2& origin, const Vector2& direction, const float& length);
 	static vector<BoxCollider*> RaycastAll(const Vector2& origin, const Vector2& direction, const float& length);

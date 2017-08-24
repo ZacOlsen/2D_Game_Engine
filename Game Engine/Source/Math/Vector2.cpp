@@ -7,8 +7,6 @@ Vector2::Vector2(const float& x, const float& y) {
 	this->y = y;
 }
 
-Vector2::~Vector2() {}
-
 float& Vector2::operator[](const unsigned int& index) {
 
 	switch (index) {

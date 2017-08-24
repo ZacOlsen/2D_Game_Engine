@@ -46,42 +46,40 @@ Shader::Shader(const char* vertFile, const char* fragFile) {
 Shader::~Shader() {
 }
 
-const GLuint Shader::getUniformLocation(const char* name) {
+const GLuint Shader::getUniformLocation(const char* name) const {
 	return glGetUniformLocation(id, name);
 }
 
-void Shader::setUniform1i(const GLuint& id, const char* name) {
+void Shader::setUniform1i(const GLuint& id, const char* name) const {
 	glUniform1i(getUniformLocation(name), id);
 	glActiveTexture(GL_TEXTURE0 + id);
 	glBindTexture(GL_TEXTURE_2D, id);
 }
 
-void Shader::setUniform1f(const float& f, const char* name) {
+void Shader::setUniform1f(const float& f, const char* name) const {
 	glUniform1f(getUniformLocation(name), f);
 }
 
-void Shader::setUniform2f(const Vector2& vec, const char* name) {
+void Shader::setUniform2f(const Vector2& vec, const char* name) const {
 	glUniform2f(getUniformLocation(name), vec.x, vec.y);
 }
 
-void Shader::setUniform3f(const Vector3& vec, const char* name) {
+void Shader::setUniform3f(const Vector3& vec, const char* name) const {
 	glUniform3f(getUniformLocation(name), vec.x, vec.y, vec.z);
 }
 
-void Shader::setUniform4f(const Vector4& vec, const char* name) {
+void Shader::setUniform4f(const Vector4& vec, const char* name) const {
 	glUniform4f(getUniformLocation(name), vec.x, vec.y, vec.z, vec.w);
 }
 
-const GLuint Shader::getAttribLocation(const char* name) {
+const GLuint Shader::getAttribLocation(const char* name) const {
 	return glGetAttribLocation(id, name);
 }
 
-void Shader::enable() {
-
+void Shader::enable() const {
 	glUseProgram(id);
-
 }
 
-void Shader::disable() {
+void Shader::disable() const {
 	glUseProgram(0);
 }

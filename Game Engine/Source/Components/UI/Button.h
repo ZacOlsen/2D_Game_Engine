@@ -28,11 +28,11 @@ private:
 	vector<std::function<void(void)>> pressCallbacks;
 	vector<std::function<void(void)>> releaseCallbacks;
 
-	bool mouseInButton();
-	void tintRenderer();
-	void untintRenderer();
+	const bool mouseInButton() const;
+	void tintRenderer() const;
+	void untintRenderer() const;
 
-	void runPressCallbacks();
-	void runReleaseCallbacks();
+	void runPressCallbacks() const;
+	void runReleaseCallbacks() const;
 };
 

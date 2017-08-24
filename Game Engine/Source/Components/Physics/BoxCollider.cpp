@@ -49,7 +49,7 @@ std::string BoxCollider::getSaveString() {
 	return save;
 }
 
-float BoxCollider::checkVerticalCollision(const float& distance, BoxCollider& other) {
+const float BoxCollider::checkVerticalCollision(const float& distance, BoxCollider& other) const {
 
 	const Vector2 pos = gameObject->transform->getWorldPosition();
 	const Vector2 oPos = other.gameObject->transform->getWorldPosition();
@@ -87,7 +87,7 @@ float BoxCollider::checkVerticalCollision(const float& distance, BoxCollider& ot
 	}
 }
 
-float BoxCollider::checkHorizontalCollision(const float& distance, BoxCollider& other) {
+const float BoxCollider::checkHorizontalCollision(const float& distance, BoxCollider& other) const {
 	
 	const Vector2 pos = gameObject->transform->getWorldPosition();
 	const Vector2 oPos = other.gameObject->transform->getWorldPosition();
@@ -125,7 +125,7 @@ float BoxCollider::checkHorizontalCollision(const float& distance, BoxCollider& 
 	}
 }
 
-bool BoxCollider::checkPointCollision(const float& x, const float& y) {
+const bool BoxCollider::checkPointCollision(const float& x, const float& y) const {
 	
 	const Vector2 pos = gameObject->transform->getWorldPosition();
 	
@@ -137,7 +137,7 @@ bool BoxCollider::checkPointCollision(const float& x, const float& y) {
 	return x < right && x > left && y < top && y > bot;
 }
 
-float BoxCollider::checkLineCollision(const Vector2& origin, const Vector2& end) {
+const float BoxCollider::checkLineCollision(const Vector2& origin, const Vector2& end) const {
 
 	if (checkPointCollision(origin.x, origin.y)) {
 		return 0;
@@ -203,7 +203,7 @@ float BoxCollider::checkLineCollision(const Vector2& origin, const Vector2& end)
 	return shortestParamDist == FLT_MAX ? -1 : (end - origin).magnitude() * shortestParamDist; 
 }
 
-CollisionType BoxCollider::checkCollision(BoxCollider& other) {
+const CollisionType BoxCollider::checkCollision(BoxCollider& other) {
 
 	bool found = false;
 	for (unsigned int i = 0; i < collidingIDs.size(); i++) {
@@ -374,7 +374,7 @@ ostream& operator<<(ostream& stream, const BoxCollider& box) {
 	return stream;
 }
 
-void BoxCollider::renderBoxCollider() {
+void BoxCollider::renderBoxCollider() const {
 
 	float top = size.y / 2.0f;
 	float bot = -size.y / 2.0f;

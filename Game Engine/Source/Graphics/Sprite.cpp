@@ -36,8 +36,12 @@ Sprite* Sprite::getSprite(const char* fileName) {
 	return new Sprite(fileName);
 }
 
-const GLuint Sprite::getTextureID() {
+const GLuint Sprite::getTextureID() const {
 	return textureID;
+}
+
+const std::string Sprite::getFileName() const {
+	return fileName;
 }
 
 const unsigned int& Sprite::getWidth() const {
@@ -48,15 +52,11 @@ const unsigned int& Sprite::getHeight() const {
 	return height;
 }
 
-void Sprite::bind() {
+void Sprite::bind() const {
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, textureID);
 }
 
-void Sprite::unbind() {
+void Sprite::unbind() const {
 	glBindTexture(GL_TEXTURE_2D, 0);
-}
-
-std::string Sprite::getFilePath() {
-	return fileName;
 }

@@ -158,7 +158,7 @@ void TextRenderer::findFontHeight() {
 	height = (float)glyph->height;
 }
 
-const GLuint TextRenderer::getTextureID(const unsigned int& index) {
+const GLuint TextRenderer::getTextureID(const unsigned int& index) const {
 	return atlas->id;
 }
 

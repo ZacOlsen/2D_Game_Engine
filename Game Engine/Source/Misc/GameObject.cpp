@@ -62,8 +62,8 @@ void GameObject::onCollisionEnterCallBack(BoxCollider* col) {
 		updateables[i]->onCollisionEnter(col);
 	}
 
-	if (transform->parent) {
-		transform->parent->gameObject->onCollisionEnterCallBack(col);
+	if (transform->getParent()) {
+		transform->getParent()->gameObject->onCollisionEnterCallBack(col);
 	}
 }
 
@@ -73,8 +73,8 @@ void GameObject::onCollisionStayCallBack(BoxCollider* col) {
 		updateables[i]->onCollisionStay(col);
 	}
 
-	if (transform->parent) {
-		transform->parent->gameObject->onCollisionStayCallBack(col);
+	if (transform->getParent()) {
+		transform->getParent()->gameObject->onCollisionStayCallBack(col);
 	}
 }
 
@@ -84,8 +84,8 @@ void GameObject::onCollisionExitCallBack(BoxCollider* col) {
 		updateables[i]->onCollisionExit(col);
 	}
 
-	if (transform->parent) {
-		transform->parent->gameObject->onCollisionExitCallBack(col);
+	if (transform->getParent()) {
+		transform->getParent()->gameObject->onCollisionExitCallBack(col);
 	}
 }
 
@@ -95,8 +95,8 @@ void GameObject::onTriggerEnterCallBack(BoxCollider* col) {
 		updateables[i]->onTriggerEnter(col);
 	}
 	
-	if (transform && transform->parent) {
-		transform->parent->gameObject->onTriggerEnterCallBack(col);
+	if (transform && transform->getParent()) {
+		transform->getParent()->gameObject->onTriggerEnterCallBack(col);
 	}
 }
 
@@ -106,8 +106,8 @@ void GameObject::onTriggerStayCallBack(BoxCollider* col) {
 		updateables[i]->onTriggerStay(col);
 	}
 
-	if (transform->parent) {
-		transform->parent->gameObject->onTriggerStayCallBack(col);
+	if (transform->getParent()) {
+		transform->getParent()->gameObject->onTriggerStayCallBack(col);
 	}
 }
 
@@ -117,8 +117,8 @@ void GameObject::onTriggerExitCallBack(BoxCollider* col) {
 		updateables[i]->onTriggerExit(col);
 	}
 
-	if (transform->parent) {
-		transform->parent->gameObject->onTriggerExitCallBack(col);
+	if (transform->getParent()) {
+		transform->getParent()->gameObject->onTriggerExitCallBack(col);
 	}
 }
 

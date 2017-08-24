@@ -67,7 +67,7 @@ void Button::addReleaseCallback(const std::function<void(void)>& func) {
 	releaseCallbacks.push_back(func);
 }
 
-bool Button::mouseInButton() {
+const bool Button::mouseInButton() const {
 
 	Vector2 botL(-.5f, -.5f);
 	Vector2 topR(.5f, .5f);
@@ -91,27 +91,27 @@ bool Button::mouseInButton() {
 	return mousePos.y <= topR.y && mousePos.y >= botL.y && mousePos.x >= botL.x && mousePos.x <= topR.x;
 }
 
-void Button::tintRenderer() {
+void Button::tintRenderer() const {
 
 	if (renderer) {
 		renderer->color = tintColor;
 	}
 }
 
-void Button::untintRenderer() {
+void Button::untintRenderer() const {
 
 	if (renderer) {
 		renderer->color = Vector4(1, 1, 1, 1);
 	}
 }
 
-void Button::runPressCallbacks() {
+void Button::runPressCallbacks() const {
 	for (unsigned int i = 0; i < pressCallbacks.size(); i++) {
 		pressCallbacks[i]();
 	}
 }
 
-void Button::runReleaseCallbacks() {
+void Button::runReleaseCallbacks() const {
 	for (unsigned int i = 0; i < releaseCallbacks.size(); i++) {
 		releaseCallbacks[i]();
 	}

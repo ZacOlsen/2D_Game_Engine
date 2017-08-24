@@ -19,7 +19,7 @@ RigidBody* RigidBody::createFromString(const string& str) {
 	return new RigidBody();
 }
 
-Vector2 RigidBody::getPreviousPosition() const {
+const Vector2 RigidBody::getPreviousPosition() const {
 	return gameObject->transform->getTransformation()[2] - velocity * TIME_BETWEEN_FRAMES;
 }
 

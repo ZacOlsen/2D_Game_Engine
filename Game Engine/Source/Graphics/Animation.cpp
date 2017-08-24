@@ -59,10 +59,10 @@ Animation* Animation::createFromString(const string& str) {
 	return nullptr;
 }
 
-const unsigned int Animation::spriteCount() {
+const unsigned int Animation::spriteCount() const {
 	return sprites.size();
 }
 
-vector<Sprite*> Animation::getSpriteSet(const unsigned int& index) {
+const vector<Sprite*> Animation::getSpriteSet(const unsigned int& index) const {
 	return sprites[index];
 }

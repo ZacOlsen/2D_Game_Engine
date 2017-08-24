@@ -91,7 +91,7 @@ void Renderer::setSprites(const vector<Sprite*>& sprites) {
 	this->sprites = sprites;
 }
 
-const GLuint Renderer::getTextureID(const unsigned int& index) {
+const GLuint Renderer::getTextureID(const unsigned int& index) const {
 	return sprites[index]->getTextureID();
 }
 
@@ -120,7 +120,7 @@ void Renderer::render() {
 	}
 }
 
-void Renderer::renderSprite(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL) {
+void Renderer::renderSprite(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL) const {
 
 	shaders[shaderIndex]->enable();
 	shaders[shaderIndex]->setUniform4f(color, "spriteColor");
@@ -158,7 +158,7 @@ void Renderer::renderSprite(const Vector2& botL, const Vector2& botR, const Vect
 	shaders[shaderIndex]->disable();
 }
 
-void Renderer::renderRect(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL) {
+void Renderer::renderRect(const Vector2& botL, const Vector2& botR, const Vector2& topR, const Vector2& topL) const {
 
 	glBegin(GL_QUADS);
 	glColor3f(color.x, color.y, color.z);

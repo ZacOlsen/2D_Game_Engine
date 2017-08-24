@@ -32,18 +32,18 @@ public:
 	std::string getSaveString();
 	static BoxCollider* createFromString(const string& str);
 
-	float checkVerticalCollision(const float& distance, BoxCollider& other);
-	float checkHorizontalCollision(const float& distance, BoxCollider& other);
+	const float checkVerticalCollision(const float& distance, BoxCollider& other) const;
+	const float checkHorizontalCollision(const float& distance, BoxCollider& other) const;
 	
-	bool checkPointCollision(const float& x, const float& y);
-	float checkLineCollision(const Vector2& origin, const Vector2& end); //distance to col, < 0 = no col
+	const bool checkPointCollision(const float& x, const float& y) const;
+	const float checkLineCollision(const Vector2& origin, const Vector2& end) const; //distance to col, < 0 = no col
 
-	CollisionType checkCollision(BoxCollider& other);
+	const CollisionType checkCollision(BoxCollider& other);
 	void fixCollision(const BoxCollider& other);
 
 	friend ostream& operator<<(ostream& stream, const BoxCollider& box);
 
-	void renderBoxCollider();
+	void renderBoxCollider() const;
 
 private:
 
