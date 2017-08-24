@@ -10,6 +10,8 @@ TextRenderer::TextRenderer(const char* str, const float& size, const TextJustifi
 
 TextRenderer::~TextRenderer() {
 
+	Component::~Component();
+
 	using namespace ftgl;
 
 	if (atlas) {

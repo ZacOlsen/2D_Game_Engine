@@ -7,7 +7,7 @@ class BoxCollider;
 class Updateable : public Component {
 
 public:
-	~Updateable();
+
 	virtual void start() {};
 	virtual void update() {};
 	virtual void lateUpdate() {};

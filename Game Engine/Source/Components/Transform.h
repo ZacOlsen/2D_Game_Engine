@@ -11,7 +11,6 @@ public:
 
 	Transform(const Matrix3& trans = Matrix3::identityMatrix(),	const Matrix3& rot = Matrix3::identityMatrix(), 
 		const Matrix3& scale = Matrix3::identityMatrix(), Transform* parent = nullptr);
-	~Transform();
 
 	std::string getSaveString();
 	static Transform* createFromString(const string& string);

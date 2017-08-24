@@ -11,8 +11,7 @@ class Component {
 public:
 	GameObject* gameObject = nullptr;
 
-	Component();
-	virtual ~Component() {};
+	virtual ~Component();
 
 	virtual std::string getSaveString() = 0;
 };

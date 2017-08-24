@@ -8,7 +8,6 @@ public:
 
 	RectTransform(const Matrix3& trans = Matrix3::identityMatrix(), const Matrix3& rot = Matrix3::identityMatrix(),
 		const Matrix3& scale = Matrix3::identityMatrix(), RectTransform* parent = nullptr);
-	~RectTransform();
 
 	string getSaveString();
 	static RectTransform* createFromString(const string& str);

@@ -18,8 +18,6 @@ RectTransform::RectTransform(const Matrix3& trans, const Matrix3& rot, const Mat
 	updateTransform();
 }
 
-RectTransform::~RectTransform() {}
-
 string RectTransform::getSaveString() {
 
 	string save = "RectTransform\n";

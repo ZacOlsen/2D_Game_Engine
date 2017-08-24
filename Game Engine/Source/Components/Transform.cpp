@@ -21,8 +21,6 @@ Transform::Transform(const Matrix3& trans, const Matrix3& rot, const Matrix3& sc
 	updateTransform();
 }
 
-Transform::~Transform() {}
-
 std::string Transform::getSaveString() {
 
 	string save = "Transform\n";

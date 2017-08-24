@@ -12,7 +12,7 @@ public:
 	SpriteRenderer(const Vector2& size = Vector2(1, 1), const Vector4& color = Vector4(1, 1, 1, 1), Sprite* sprite = NULL);
 	SpriteRenderer(const Vector2& size, const Vector4& color, vector<Sprite*> sprites, vector<string> locationNames,
 		const unsigned int& layer = 1);
-	~SpriteRenderer();
+	~SpriteRenderer() override;
 	
 	string getSaveString();
 	static SpriteRenderer* createFromString(const string& string);

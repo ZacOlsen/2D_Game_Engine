@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "..\Component.h"
+#include "..\Updateable.h"
 #include "..\..\Misc\GameObject.h"
 
 #define NUM_OF_CORNERS 4
@@ -15,7 +15,7 @@ enum CollisionType {
 	NONE
 };
 
-class BoxCollider : public Component {
+class BoxCollider : public Updateable {
 
 public:
 	
@@ -26,6 +26,8 @@ public:
 
 	BoxCollider(const Vector2& size = Vector2(0, 0), const bool& trigger = false);
 	~BoxCollider();
+
+	void start();
 
 	std::string getSaveString();
 	static BoxCollider* createFromString(const string& str);

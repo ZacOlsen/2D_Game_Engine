@@ -11,7 +11,12 @@ BoxCollider::BoxCollider(const Vector2& size, const bool& trigger) : id(counter+
 }
 
 BoxCollider::~BoxCollider() {
+	Component::~Component();
 	Physics::removeCollider(this);
+}
+
+void BoxCollider::start() {
+	rb = gameObject->getComponent<RigidBody>();
 }
 
 BoxCollider* BoxCollider::createFromString(const string& str) {

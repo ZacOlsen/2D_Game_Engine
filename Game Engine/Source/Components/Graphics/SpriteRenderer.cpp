@@ -22,6 +22,8 @@ SpriteRenderer::SpriteRenderer(const Vector2& size, const Vector4& color, vector
 
 SpriteRenderer::~SpriteRenderer() {
 
+	Component::~Component();
+
 	auto it = find(spriteRenders[sortingLayer].begin(), spriteRenders[sortingLayer].end(), this);
 	if (it != spriteRenders[sortingLayer].end()) {
 		spriteRenders[sortingLayer].erase(it);

@@ -5,6 +5,7 @@ RigidBody::RigidBody() {
 }
 
 RigidBody::~RigidBody() {
+	Component::~Component();
 	Physics::removeRigidBody(this);
 }
 

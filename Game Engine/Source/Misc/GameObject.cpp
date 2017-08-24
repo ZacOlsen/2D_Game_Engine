@@ -1,8 +1,6 @@
 #include "GameObject.h"
 
 GameObject::GameObject(const string& tag) : tag(tag) {
-
-	//updateable = vector<Updateable*>();
 	GameManager::addGameObject(this);
 }
 
@@ -12,8 +10,8 @@ GameObject::~GameObject() {
 		delete transform->getChild(i)->gameObject;
 	}
 
-	for (unsigned int i = 0; i < components.size(); i++) {
-		delete components[i];
+	while (components.size() > 0) {
+		delete components[0];
 	}
 
 	GameManager::removeGameObject(this);
@@ -135,10 +133,6 @@ void GameObject::addComponent(Component* comp) {
 
 	if (dynamic_cast<Transform*>(comp)) {
 		transform = (Transform*)comp;
-	}
-
-	if (dynamic_cast<BoxCollider*>(comp)) {
-		((BoxCollider*)comp)->rb = getComponent<RigidBody>();
 	}
 }
 
