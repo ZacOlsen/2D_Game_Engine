@@ -77,6 +77,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)ex\freetype\include;$(SolutionDir)Dependencies\glfw-3.2.bin.WIN32\include;$(SolutionDir)Dependencies\glew-1.13.0\include;$(SolutionDir)Dependencies\FreeImage\Dist\x32;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\glfw-3.2.bin.WIN32\lib-vc2015;$(SolutionDir)Dependencies\glew1.13.0\lib\Release\Win32;$(SolutionDir)Dependencies\FreeImage\Dist\x32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -85,6 +87,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir)ex\freetype\include;$(SolutionDir)Dependencies\glfw-3.2.bin.WIN32\include;$(SolutionDir)Dependencies\glew-1.13.0\include;$(SolutionDir)Dependencies\FreeImage\Dist\x32;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\glfw-3.2.bin.WIN32\lib-vc2015;$(SolutionDir)Dependencies\glew1.13.0\lib\Release\Win32;$(SolutionDir)Dependencies\FreeImage\Dist\x32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -109,6 +113,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>glfw3dll.lib;glew32s.lib;opengl32.lib;FreeImage.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -142,6 +147,7 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>glfw3dll.lib;glew32s.lib;opengl32.lib;FreeImage.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
